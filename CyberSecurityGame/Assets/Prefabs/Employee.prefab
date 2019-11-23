@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 2706517371998621238}
   - component: {fileID: 4831738292655938348}
   - component: {fileID: 4831738292655938349}
+  - component: {fileID: 6242984893410680033}
   m_Layer: 0
   m_Name: Employee
   m_TagString: Untagged
@@ -164,5 +165,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42708c980586c1f469c62d425698713d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetWithinDistance: 3
+  GetWithinDistance: 4
   Test: {fileID: 0}
+  Test2: {fileID: 0}
+--- !u!136 &6242984893410680033
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386663518324266271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2
+  m_Height: 5.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 3.1, z: 0}

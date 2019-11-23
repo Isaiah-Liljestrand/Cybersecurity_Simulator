@@ -7,6 +7,7 @@ public class NavigateTo : MonoBehaviour
 {
     public float GetWithinDistance;
     public GameObject Test;
+    public GameObject Test2;
     private Vector3 Target;
     private bool Walking;
     private Animator Anm;
@@ -32,6 +33,7 @@ public class NavigateTo : MonoBehaviour
         Target = pos;
         Walking = true;
         Anm.SetBool("Walking", true);
+        Agent.isStopped = false;
         Agent.SetDestination(Target);
     }
 
@@ -44,7 +46,14 @@ public class NavigateTo : MonoBehaviour
             {
                 Walking = false;
                 Anm.SetBool("Walking", false);
+                Agent.isStopped = true;
+                //Agent.SetDestination(transform.position);
             }
         }
+    }
+
+    private void OnMouseDown()
+    {
+        GoToObject(Test2);
     }
 }
