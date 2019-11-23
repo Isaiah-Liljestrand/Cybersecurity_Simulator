@@ -47,7 +47,6 @@ public class NavigateTo : MonoBehaviour
                 Walking = false;
                 Anm.SetBool("Walking", false);
                 Agent.isStopped = true;
-                //Agent.SetDestination(transform.position);
             }
         }
     }
