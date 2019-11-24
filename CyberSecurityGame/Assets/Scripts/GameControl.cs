@@ -12,6 +12,12 @@ public class GameControl : MonoBehaviour
     public GameObject NetworkShadow;
     public List<GameObject> BreakObjects;
 
+
+    public GameObject timeOfDay;
+    public GameObject Money;
+    public GameObject Productivity;
+
+
     public float MinInfectWait;
     public float MaxInfectWait;
     private float ChosenInfectWait;
