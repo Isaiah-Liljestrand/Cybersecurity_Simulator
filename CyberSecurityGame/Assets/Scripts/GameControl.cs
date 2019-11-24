@@ -42,6 +42,8 @@ public class GameControl : MonoBehaviour
 
     public GameObject EmployeeComputerWindow;
 
+    public GameObject EducationScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,8 +82,17 @@ public class GameControl : MonoBehaviour
                 else
                 {
                     //End Day
+                    EducationScreen.SetActive(true);
                 }
             }
+        }
+    }
+
+    public void ResetGame()
+    {
+        foreach(GameObject employee in EmployeeObjs)
+        {
+            //employee.tra
         }
     }
 
@@ -151,6 +162,7 @@ public class GameControl : MonoBehaviour
     {
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
+        PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 1);
     }
 
     public void Clean()

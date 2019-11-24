@@ -234,8 +234,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.1325426, y: 3.4123554, z: 2.8485034}
-  m_Center: {x: -0.0200243, y: 1.2061777, z: -0.3190776}
+  m_Size: {x: 5.1325426, y: 5.396538, z: 2.8485034}
+  m_Center: {x: -0.0200243, y: 2.198269, z: -0.3190776}
 --- !u!114 &-2769533141548981951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,9 +262,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Disease: 0
+  MinAttackWait: 0
+  MaxAttackWait: 0
   AttackWait: 0
   Hidden: 0
   Index: 0
+  CanInvestigate: 0
 --- !u!1 &6062177109568970857
 GameObject:
   m_ObjectHideFlags: 0
