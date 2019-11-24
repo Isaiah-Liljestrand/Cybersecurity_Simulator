@@ -49,7 +49,7 @@ public class EmployeeControl : MonoBehaviour
     {
         if (!Paused)
         {
-            if (!OnBreak)
+            if (!OnBreak && !CanInvestigate)
             {
                 PassedTime += Time.deltaTime;
                 if (PassedTime > ChosenTime)
@@ -119,13 +119,14 @@ public class EmployeeControl : MonoBehaviour
         control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, waitTime, hidden);
         DiseaseCode = Disease;
         this.Mystery = Mystery;
-
+        CanInvestigate = true;
         control.reduceProductivity();
         ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
     }
 
     public void SolveIssue()
     {
+        CanInvestigate = false;
         Destroy(ExclamationMark);
         ExclamationMark = null;
     }
