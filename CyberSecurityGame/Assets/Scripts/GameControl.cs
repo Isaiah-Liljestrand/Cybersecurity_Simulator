@@ -101,6 +101,8 @@ public class GameControl : MonoBehaviour
         if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
             //Bring up UI stuff
+            if (obj.GetComponent<EmployeeControl>().CanInvestigate) ;
+            //GetComponent<DialogueControl>().startDialogue(obj.GetComponent<EmployeeControl>().DiseaseCode);
         }
         else
         {
