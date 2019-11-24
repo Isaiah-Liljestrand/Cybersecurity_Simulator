@@ -18,10 +18,11 @@ public class EmployeeControl : MonoBehaviour
     private float ChosenBreakTime;
     private float PassedTime;
 
-    public List<GameObject> BreakLocations;
     private bool OnBreak;
 
     private NavigateTo nav;
+
+    private GameControl control;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class EmployeeControl : MonoBehaviour
         OnBreak = false;
         PassedTime = 0;
         nav = GetComponent<NavigateTo>();
+        control = GameObject.Find("Control").GetComponent<GameControl>();
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class EmployeeControl : MonoBehaviour
                     ChosenBreakTime = UnityEngine.Random.Range(BreakTimeMin, BreakTimeMax);
                     OnBreak = true;
                     PassedTime = 0;
-                    nav.GoToObject(BreakLocations[UnityEngine.Random.Range(0, BreakLocations.Count)]);
+                    nav.GoToObject(control.BreakObjects[UnityEngine.Random.Range(0, control.BreakObjects.Count)]);
                 }
             }
         }

@@ -196,8 +196,7 @@ MonoBehaviour:
   Name: 
   SpamProb: 0
   Office: {fileID: 0}
-  BreakChance: 0.1
+  BreakChance: 0.01
   BreakTimeMin: 5
-  BreakTimeMax: 15
-  WorkTime: 15
-  BreakLocations: []
+  BreakTimeMax: 30
+  WorkTime: 30

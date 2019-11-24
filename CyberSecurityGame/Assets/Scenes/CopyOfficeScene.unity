@@ -3504,7 +3504,7 @@ MonoBehaviour:
   - {fileID: 427321037}
   - {fileID: 1782617519}
   TargetObj: {fileID: 1466334538}
-  NetworkShadow: {fileID: 0}
+  NetworkShadow: {fileID: 1565341555}
 --- !u!4 &1238019899
 Transform:
   m_ObjectHideFlags: 0
@@ -4199,6 +4199,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5767630837799177380, guid: 60e037a9dd5a0444398660195f0e88e6,
     type: 3}
   m_PrefabInstance: {fileID: 372990682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1565341555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8179825214820847937, guid: 0300b4a76e6098b48b48be13fe3a59f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8179825215445083698}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1571181873
 PrefabInstance:

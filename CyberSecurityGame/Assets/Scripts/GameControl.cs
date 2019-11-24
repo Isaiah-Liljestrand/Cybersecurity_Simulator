@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour
     public GameObject TargetObj;
     private NetworkControl NC;
     public GameObject NetworkShadow;
+    public List<GameObject> BreakObjects;
 
     // Start is called before the first frame update
     void Start()
