@@ -57,7 +57,7 @@ public class NetworkControl : MonoBehaviour
             List<int> newlist = new List<int>();
             for (int j = 0; j < 16; j++)
             {
-                if (Connections[i, j] == 1)
+                if (j >= i && Connections[i, j] == 1)
                 {
                     newlist.Add(count);
                     GameObject ChildLine = new GameObject();
@@ -78,4 +78,40 @@ public class NetworkControl : MonoBehaviour
         }
         LineObject.SetActive(false);
     }
+
+    public void set_infection_status(GameObject node, int status_code) {
+
+
+        if (status_code == 1) { // cure it
+            node.transform.Find("NetworkNode");
+
+        }
+        if (status_code == 2) // infection type 1
+        { 
+            node.transform.Find("NetworkNode");
+
+        }
+
+        if (status_code == 3) // infection type 2
+        { 
+            node.transform.Find("NetworkNode");
+
+        }
+
+        if (status_code == 4)// infection type 3
+        { 
+            node.transform.Find("NetworkNode");
+
+        }
+
+        if (status_code == 5)// DDOS
+        {
+            node.transform.Find("NetworkNode");
+
+        }
+
+    }
+
+
+
 }
