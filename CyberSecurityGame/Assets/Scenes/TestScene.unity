@@ -332,7 +332,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerObj: {fileID: 3859213777476785123}
   EmployeeObjs: []
+  DeskObjects: []
   TargetObj: {fileID: 809884771}
+  NetworkShadow: {fileID: 0}
+  BreakObjects: []
 --- !u!4 &1238019899
 Transform:
   m_ObjectHideFlags: 0
