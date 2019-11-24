@@ -39,6 +39,7 @@ public class ComputerControl : MonoBehaviour
 
     public void Clean()
     {
+        Net.set_infection_status(gameObject, DiseaseType.Clean);
         Disease = DiseaseType.Clean;
         Hidden = false;
     }
