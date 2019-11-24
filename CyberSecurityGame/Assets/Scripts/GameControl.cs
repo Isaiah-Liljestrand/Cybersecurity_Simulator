@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameControl : MonoBehaviour
@@ -14,6 +15,7 @@ public class GameControl : MonoBehaviour
 
 
     public GameObject timeOfDay;
+    private int Dollars;
     public GameObject Money;
     public GameObject Productivity;
     public int ProductivityNum;
@@ -25,6 +27,7 @@ public class GameControl : MonoBehaviour
     private float PassedInfectTime;
 
     private float PassedDayTime;
+    private int HourStep;
 
     private List<DiseaseType> AvailableDiseaseTypes;
 
@@ -36,6 +39,7 @@ public class GameControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Dollars = 1000;
         NC = GetComponent<NetworkControl>();
         NC.CreateLines(DeskObjects);
         ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
@@ -59,6 +63,19 @@ public class GameControl : MonoBehaviour
                 ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
                 PassedInfectTime = 0;
             }
+            if (PassedDayTime > 30)
+            {
+                HourStep++;
+                if (HourStep < 10)
+                {
+                    HourlyUpdate();
+                    PassedDayTime = 0;
+                }
+                else
+                {
+                    //End Day
+                }
+            }
         }
     }
 
@@ -73,7 +90,7 @@ public class GameControl : MonoBehaviour
             {
                 TargetObj.SetActive(true);
                 TargetObj.transform.position = hit.point;
-                PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point, 3);
+                PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point, 1);
                 HideNetwork();
             }
         }
@@ -201,6 +218,14 @@ public class GameControl : MonoBehaviour
     {
         ProductivityNum -= 20;
         //todo
-        Productivity = ProductivityNum + "$/hr";
+        Productivity.GetComponent<TextMeshProUGUI>().text = "$" + ProductivityNum + "/hr";
+    }
+
+    private void HourlyUpdate()
+    {
+        Dollars += ProductivityNum;
+        Money.GetComponent<TextMeshProUGUI>().text = "$" + Dollars;
+        string[] Times = new string[] { "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"};
+        timeOfDay.GetComponent<TextMeshProUGUI>().text = Times[HourStep];
     }
 }
