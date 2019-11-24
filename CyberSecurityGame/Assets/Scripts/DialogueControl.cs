@@ -209,7 +209,7 @@ public class DialogueControl : MonoBehaviour
         return Conclusion[n - 1];
     }
 
-    public void Next(int state)
+    public void Next()
     {
         
         switch (state)
