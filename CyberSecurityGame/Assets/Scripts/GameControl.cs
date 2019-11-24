@@ -125,8 +125,8 @@ public class GameControl : MonoBehaviour
         {
             //Bring up UI stuff
             Pause();
-            CurrentConversationIndex = obj.GetComponent<ComputerControl>().Index;
-            if (obj.GetComponent<ComputerControl>().CanInvestigate)
+            CurrentConversationIndex = obj.transform.parent.GetComponent<ComputerControl>().Index;
+            if (obj.transform.parent.GetComponent<ComputerControl>().CanInvestigate)
                 EmployeeComputerWindow.SetActive(true);
         }
         else
@@ -151,7 +151,6 @@ public class GameControl : MonoBehaviour
     {
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
-        PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 4);
     }
 
     public void Clean()
@@ -159,6 +158,7 @@ public class GameControl : MonoBehaviour
         Resume();
         EmployeeComputerWindow.SetActive(false);
         EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().Clean();
+        DeskObjects[CurrentConversationIndex].GetComponent<ComputerControl>().SolveIssue();
     }
 
     public void Research()
@@ -166,6 +166,7 @@ public class GameControl : MonoBehaviour
         Resume();
         EmployeeComputerWindow.SetActive(false);
         EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().Research();
+        DeskObjects[CurrentConversationIndex].GetComponent<ComputerControl>().SolveIssue();
     }
 
     public void ShowNetwork()

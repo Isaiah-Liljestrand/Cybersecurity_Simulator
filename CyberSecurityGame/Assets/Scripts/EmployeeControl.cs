@@ -132,6 +132,7 @@ public class EmployeeControl : MonoBehaviour
         DiseaseCode = DiseaseType.Clean;
         control.returnProductivity();
         control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
+        
     }
 
     public void Research()
