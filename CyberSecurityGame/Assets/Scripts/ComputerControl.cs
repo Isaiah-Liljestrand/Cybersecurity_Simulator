@@ -33,7 +33,7 @@ public class ComputerControl : MonoBehaviour
 
     public void Clean()
     {
-        Disease = Clean;
+        Disease = DiseaseType.Clean;
         Hidden = false;
     }
 
