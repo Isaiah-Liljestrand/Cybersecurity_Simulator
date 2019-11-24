@@ -40,6 +40,8 @@ public class GameControl : MonoBehaviour
 
     private int CurrentConversationIndex;
 
+    public GameObject EmployeeComputerWindow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,12 +106,10 @@ public class GameControl : MonoBehaviour
     {
         if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
-            //Bring up UI stuff
             Pause();
             CurrentConversationIndex = obj.GetComponent<EmployeeControl>().Index;
             if (obj.GetComponent<EmployeeControl>().CanInvestigate)
             {
-                //Debug.Log("Opening dialog");
                 GetComponent<DialogueControl>().startDialogue(obj.GetComponent<EmployeeControl>().DiseaseCode);
             }
         }
@@ -124,6 +124,10 @@ public class GameControl : MonoBehaviour
         if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
             //Bring up UI stuff
+            Pause();
+            CurrentConversationIndex = obj.GetComponent<ComputerControl>().Index;
+            if (obj.GetComponent<ComputerControl>().CanInvestigate)
+                EmployeeComputerWindow.SetActive(true);
         }
         else
         {
@@ -148,8 +152,18 @@ public class GameControl : MonoBehaviour
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
         PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 4);
-        //NC.set_infection_status(obj, 0);
-        //ShowNetwork();
+    }
+
+    public void Clean()
+    {
+        Resume();
+        EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().Clean();
+    }
+
+    public void Research()
+    {
+        Resume();
+        EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().Research();
     }
 
     public void ShowNetwork()

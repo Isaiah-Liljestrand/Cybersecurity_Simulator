@@ -18,7 +18,7 @@ public class ComputerControl : MonoBehaviour
 
     private GameObject ExclamationMark;
 
-    private bool CanInvestigate;
+    public bool CanInvestigate;
 
     private void Start()
     {

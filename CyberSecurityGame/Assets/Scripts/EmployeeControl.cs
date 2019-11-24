@@ -37,6 +37,9 @@ public class EmployeeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResistPhish = UnityEngine.Random.Range(0, 100);
+        ResistPassword = UnityEngine.Random.Range(0, 100);
+        ResistUpload = UnityEngine.Random.Range(0, 100);
         DiseaseCode = DiseaseType.Clean;
         OnBreak = true;
         PassedTime = 0;
