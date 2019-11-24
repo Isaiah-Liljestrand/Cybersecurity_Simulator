@@ -211,7 +211,6 @@ public class DialogueControl : MonoBehaviour
 
     public void Next()
     {
-        
         switch (state)
         {
 
