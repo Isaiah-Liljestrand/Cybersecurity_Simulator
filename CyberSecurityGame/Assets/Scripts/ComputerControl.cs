@@ -14,6 +14,8 @@ public class ComputerControl : MonoBehaviour
 
     private bool Paused;
 
+    private GameObject ExclamationMark;
+
     private void Start()
     {
         Control = GameObject.Find("Control").GetComponent<GameControl>();
@@ -84,5 +86,16 @@ public class ComputerControl : MonoBehaviour
                 Employee.Infected(Disease, true, AttackWait, Hidden);
             }
         }
+    }
+
+    public void CreateIssue()
+    {
+        ExclamationMark = Instantiate(Control.ExclamationPrefab, this.transform);
+    }
+
+    public void SolveIssue()
+    {
+        Destroy(ExclamationMark);
+        ExclamationMark = null;
     }
 }

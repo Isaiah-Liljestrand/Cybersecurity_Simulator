@@ -31,6 +31,8 @@ public class EmployeeControl : MonoBehaviour
 
     private bool Paused;
 
+    private GameObject ExclamationMark;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -116,5 +118,13 @@ public class EmployeeControl : MonoBehaviour
         control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, waitTime, hidden);
         DiseaseCode = Disease;
         this.Mystery = Mystery;
+
+        ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
+    }
+
+    public void SolveIssue()
+    {
+        Destroy(ExclamationMark);
+        ExclamationMark = null;
     }
 }
