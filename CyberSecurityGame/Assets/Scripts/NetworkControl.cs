@@ -44,7 +44,7 @@ public class NetworkControl : MonoBehaviour
     public void CreateLines(List<GameObject> DeskObjects)
     {
         List<Vector3> CoordinatesOfNodes = new List<Vector3>();
-        foreach(GameObject obj in DeskObjects)
+        foreach (GameObject obj in DeskObjects)
         {
             CoordinatesOfNodes.Add(obj.transform.Find("NetworkNode").transform.position);
         }
@@ -56,12 +56,10 @@ public class NetworkControl : MonoBehaviour
             }
         }
 
-            LineObject = new GameObject();
+        LineObject = new GameObject();
         LineObject.layer = 8;
-        //lines = new List<List<LineRenderer>>();
         for (int i = 0; i < 16; i++)
         {
-            //List<LineRenderer> newlist = new List<LineRenderer>();
             for (int j = 0; j < 16; j++)
             {
                 if (j >= i && Connections[i, j] == 1)
@@ -77,10 +75,19 @@ public class NetworkControl : MonoBehaviour
                     newline.startWidth = 0.5f;
                     newline.startWidth = 0.5f;
                     newline.material = LineMaterial;
-                    newline.SetPositions(new Vector3[] {CoordinatesOfNodes[i], CoordinatesOfNodes[j]});
+                    newline.SetPositions(new Vector3[] { CoordinatesOfNodes[i], CoordinatesOfNodes[j] });
                 }
             }
-            //lines.Add(newlist);
+        }
+        for (int i = 0; i < 16; i++)
+        {
+            for (int j = 0; j < 16; j++)
+            {
+                if (j < i)
+                {
+                    lines[i, j] = lines[j, i];
+                }
+            }
         }
         LineObject.SetActive(false);
     }
