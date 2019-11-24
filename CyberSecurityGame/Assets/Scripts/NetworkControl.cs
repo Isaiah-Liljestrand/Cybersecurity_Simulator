@@ -66,9 +66,23 @@ public class NetworkControl : MonoBehaviour
                 if (j >= i && Connections[i, j] == 1)
                 {
                     GameObject ChildLine = new GameObject();
+                    GameObject box_trigger = new GameObject();
+
                     ChildLine.transform.SetParent(LineObject.transform);
                     ChildLine.layer = 8;
                     ChildLine.AddComponent<LineRenderer>();
+
+                    box_trigger.transform.SetParent(ChildLine.transform);
+                    box_trigger.AddComponent<BoxCollider>();
+                    box_trigger.GetComponent<BoxCollider>().isTrigger = true;
+                    box_trigger.AddComponent<LineClickScript>();
+
+                    box_trigger.GetComponent<LineClickScript>().x = i;
+                    box_trigger.GetComponent<LineClickScript>().y = j;
+                    box_trigger.GetComponent<LineClickScript>().net = this;
+
+
+
                     LineRenderer newline = ChildLine.GetComponent<LineRenderer>();
                     lines[i, j] = newline;
                     newline.startColor = Color.white;
@@ -77,6 +91,17 @@ public class NetworkControl : MonoBehaviour
                     newline.startWidth = 0.5f;
                     newline.material = LineMaterial;
                     newline.SetPositions(new Vector3[] { CoordinatesOfNodes[i], CoordinatesOfNodes[j] });
+                    
+                    float newline_length = Vector3.Distance(CoordinatesOfNodes[i], CoordinatesOfNodes[j]);
+                    box_trigger.transform.position = CoordinatesOfNodes[i];
+                    box_trigger.transform.LookAt(CoordinatesOfNodes[j]);
+                    box_trigger.GetComponent<BoxCollider>().size = new Vector3(2.5f,2.5f, newline_length);
+                    box_trigger.transform.position = (CoordinatesOfNodes[i] + CoordinatesOfNodes[j])/2;
+
+
+
+
+
                 }
             }
         }
@@ -125,10 +150,12 @@ public class NetworkControl : MonoBehaviour
 
                 if (lines[name_index, i] != null)
                 {
+                    if (lines[name_index, i].startColor != Color.cyan && lines[name_index, i].endColor != Color.cyan)
+                     {
 
-                    lines[name_index, i].startColor = Color.red;
-                    lines[name_index, i].endColor = Color.red;
-
+                        lines[name_index, i].startColor = Color.red;
+                        lines[name_index, i].endColor = Color.red;
+                    }
 
                 }
 
@@ -146,10 +173,12 @@ public class NetworkControl : MonoBehaviour
 
                 if (lines[name_index, i] != null)
                 {
+                    if (lines[name_index, i].startColor != Color.cyan && lines[name_index, i].endColor != Color.cyan)
+                    {
 
-                    lines[name_index, i].startColor = Color.yellow;
-                    lines[name_index, i].endColor = Color.yellow;
-
+                        lines[name_index, i].startColor = Color.yellow;
+                        lines[name_index, i].endColor = Color.yellow;
+                    }
 
                 }
 
@@ -165,10 +194,11 @@ public class NetworkControl : MonoBehaviour
 
                 if (lines[name_index, i] != null)
                 {
-
-                    lines[name_index, i].startColor = Color.green;
-                    lines[name_index, i].endColor = Color.green;
-
+                    if (lines[name_index, i].startColor != Color.cyan && lines[name_index, i].endColor != Color.cyan)
+                    {
+                        lines[name_index, i].startColor = Color.green;
+                        lines[name_index, i].endColor = Color.green;
+                    }
 
                 }
 
