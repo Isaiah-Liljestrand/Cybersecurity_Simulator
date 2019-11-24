@@ -6,12 +6,16 @@ public class GameControl : MonoBehaviour
 {
     public GameObject PlayerObj;
     public List<GameObject> EmployeeObjs;
+    public List<GameObject> DeskObjects;
     public GameObject TargetObj;
+    private NetworkControl NC;
+    public GameObject NetworkShadow;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        NC = GetComponent<NetworkControl>();
+        NC.CreateLines(DeskObjects);
     }
 
     // Update is called once per frame
@@ -44,5 +48,26 @@ public class GameControl : MonoBehaviour
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
         PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position);
+        ShowNetwork();
+    }
+
+    public void ShowNetwork()
+    {
+        NetworkShadow.SetActive(true);
+        NC.ShowLines();
+        foreach(GameObject obj in DeskObjects)
+        {
+            obj.transform.Find("NetworkNode").gameObject.SetActive(true);
+        }
+    }
+
+    public void HideNetwork()
+    {
+        NetworkShadow.SetActive(false);
+        NC.HideLines();
+        foreach (GameObject obj in DeskObjects)
+        {
+            obj.transform.Find("NetworkNode").gameObject.SetActive(false);
+        }
     }
 }
