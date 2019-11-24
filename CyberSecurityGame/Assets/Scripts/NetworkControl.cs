@@ -8,6 +8,9 @@ using UnityEngine;
 public class NetworkControl : MonoBehaviour
 {
     public Material LineMaterial;
+
+    public List<Color> pallete = new List<Color>();
+    
     private int[,] Connections = new int[16, 16]
     {//   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
         { 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //0
@@ -94,16 +97,40 @@ public class NetworkControl : MonoBehaviour
 
     public void set_infection_status(GameObject node, int status_code) {
 
-        if (status_code < 1) {
+        int i;
+        int name_index;
+        Color infection_color;
 
-            status_code = 1;
+
+        if (status_code < 0) {
+
+            status_code = 0;
 
         }else if(status_code > 5) {
 
             status_code = 5;
 
-        }else if (status_code == 1) { // cure it
-            node.transform.Find("NetworkNode");
+        }
+
+        infection_color = pallete[status_code];
+
+
+        if (status_code == 0) { // cure it
+            //name_index = int.Parse(node.gameObject.name.Substring(node.gameObject.name.Length - (node.gameObject.name.Length - 1)));
+            name_index = 0;
+            Debug.Log(node.gameObject.name.Substring(node.gameObject.name.Length - (node.gameObject.name.Length - 1)));
+
+            for (i = 0;i <= 15; i++) {
+
+                if (lines[name_index,i] != null) {
+
+                    lines[name_index,i].startColor = infection_color;
+                    lines[name_index, i].endColor = infection_color;
+
+
+                }
+
+            }
 
         } else if (status_code == 2){ // infection type 1
         

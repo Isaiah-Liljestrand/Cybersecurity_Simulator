@@ -49,6 +49,7 @@ public class GameControl : MonoBehaviour
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
         PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 4);
+        NC.set_infection_status(obj, 0);
         ShowNetwork();
     }
 
