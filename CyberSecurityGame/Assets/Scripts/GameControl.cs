@@ -235,6 +235,7 @@ public class GameControl : MonoBehaviour
     public void ConversationEnded()
     {
         Resume();
+        EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().SolveIssue();
         DeskObjects[CurrentConversationIndex].GetComponent<ComputerControl>().CreateIssue();
     }
 

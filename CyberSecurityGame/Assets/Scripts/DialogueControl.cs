@@ -239,6 +239,7 @@ public class DialogueControl : MonoBehaviour
 
             case 5:
                 GetComponent<GameControl>().ConversationEnded();
+                Investigation.SetActive(false);
                 break;
         }
     }
