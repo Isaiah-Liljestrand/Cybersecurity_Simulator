@@ -495,6 +495,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86a4372afa222a4cbe6a2359acce8e1, type: 3}
+--- !u!1 &1729205238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5767630837799177380, guid: 60e037a9dd5a0444398660195f0e88e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2534207890565548268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1851316840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7820068134338422367, guid: 72f7631115e541847a8fcb5bc40a9105,
@@ -575,12 +581,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &2143163788 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2059399354622014376, guid: 60e037a9dd5a0444398660195f0e88e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2534207890565548268}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1511616513992801338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1091,7 +1091,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Office
       value: 
-      objectReference: {fileID: 2143163788}
+      objectReference: {fileID: 1729205238}
     - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: m_Name
