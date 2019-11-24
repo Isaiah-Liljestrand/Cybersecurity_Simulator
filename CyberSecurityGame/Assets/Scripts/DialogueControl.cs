@@ -217,6 +217,7 @@ public class DialogueControl : MonoBehaviour
 
             case 1:
                 Text2.GetComponent<TextMeshProUGUI>().SetText(chooseDialogue());
+                bubble2.SetActive(true);
                 state++;
                 break;
             case 2:
