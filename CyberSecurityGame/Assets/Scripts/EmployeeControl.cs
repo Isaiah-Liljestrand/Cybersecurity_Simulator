@@ -11,6 +11,7 @@ public class EmployeeControl : MonoBehaviour
     public int ResistPassword;
     public int ResistUpload;
     public DiseaseType DiseaseCode;
+    public bool CanInvestigate;
     public bool Mystery;
 
     public GameObject Office;
@@ -119,6 +120,7 @@ public class EmployeeControl : MonoBehaviour
         DiseaseCode = Disease;
         this.Mystery = Mystery;
 
+        control.reduceProductivity();
         ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
     }
 

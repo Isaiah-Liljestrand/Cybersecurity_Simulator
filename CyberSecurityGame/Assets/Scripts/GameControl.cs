@@ -16,6 +16,7 @@ public class GameControl : MonoBehaviour
     public GameObject timeOfDay;
     public GameObject Money;
     public GameObject Productivity;
+    public int ProductivityNum;
 
 
     public float MinInfectWait;
@@ -194,5 +195,12 @@ public class GameControl : MonoBehaviour
         {
             Employee.GetComponent<EmployeeControl>().Resume();
         }
+    }
+
+    public void reduceProductivity()
+    {
+        ProductivityNum -= 20;
+        //todo
+        Productivity = ProductivityNum + "$/hr";
     }
 }
