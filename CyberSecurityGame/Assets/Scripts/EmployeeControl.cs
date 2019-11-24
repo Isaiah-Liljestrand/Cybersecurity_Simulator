@@ -113,10 +113,10 @@ public class EmployeeControl : MonoBehaviour
         return true;
     }
 
-    public void Infected(DiseaseType Disease, bool Mystery, float waitTime, bool hidden)
+    public void Infected(DiseaseType Disease, bool Mystery, float minWait, float maxWait, bool hidden)
     {
         //Infect my computer
-        control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, waitTime, hidden);
+        control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, minWait, maxWait, hidden);
         DiseaseCode = Disease;
         this.Mystery = Mystery;
         CanInvestigate = true;
