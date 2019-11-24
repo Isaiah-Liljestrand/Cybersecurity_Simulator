@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 4831738292655938349}
   - component: {fileID: 6242984893410680033}
   - component: {fileID: 3291957591800323478}
+  - component: {fileID: -8835472636928304824}
   m_Layer: 0
   m_Name: Employee
   m_TagString: Untagged
@@ -194,9 +195,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  SpamProb: 0
+  ResistPhish: 0
+  ResistPassword: 0
+  ResistUpload: 0
+  DiseaseCode: 0
+  UnsureWhatDisease: 0
   Office: {fileID: 0}
   BreakTimeMin: 5
   BreakTimeMax: 30
   WorkTimeMin: 20
   WorkTimeMax: 60
+--- !u!114 &-8835472636928304824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386663518324266271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a6b7fedbc50974dbed4d4435a1eddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0

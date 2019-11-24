@@ -6,16 +6,35 @@ public class ClickedObject : MonoBehaviour
 {
     private GameControl control;
     private GameObject standlocation;
+    public ObjectType type;
 
     private void Start()
     {
-        standlocation = transform.Find("StandingLocation").gameObject;
+        if (transform.Find("StandingLocation"))
+            standlocation = transform.Find("StandingLocation").gameObject;
+        else
+            standlocation = gameObject;
         control = GameObject.Find("Control").GetComponent<GameControl>();
     }
 
     private void OnMouseDown()
     {
         if (standlocation)
-            control.ObjectClicked(standlocation);
+        {
+            switch (type) {
+                case ObjectType.Computer:
+                    control.ComputerClicked(standlocation);
+                    break;
+                case ObjectType.Other:
+                    control.ObjectClicked(standlocation);
+                    break;
+                case ObjectType.Person:
+                    control.PersonClicked(standlocation);
+                    break;
+                case ObjectType.PlayerComputer:
+                    control.PlayerComputerClicked(standlocation);
+                    break;
+            }
+        }
     }
 }

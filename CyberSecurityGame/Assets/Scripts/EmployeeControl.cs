@@ -10,7 +10,7 @@ public class EmployeeControl : MonoBehaviour
     public int ResistPassword;
     public int ResistUpload;
     public DiseaseType DiseaseCode;
-    public bool UnsureWhatDisease;
+    public bool Mystery;
 
     public GameObject Office;
 
@@ -31,6 +31,7 @@ public class EmployeeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DiseaseCode = DiseaseType.Clean;
         OnBreak = true;
         PassedTime = 0;
         nav = GetComponent<NavigateTo>();
@@ -93,6 +94,7 @@ public class EmployeeControl : MonoBehaviour
 
     public void Infected(DiseaseType Disease, bool Mystery)
     {
-
+        DiseaseCode = Disease;
+        this.Mystery = Mystery;
     }
 }
