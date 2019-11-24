@@ -81,30 +81,31 @@ public class NetworkControl : MonoBehaviour
 
     public void set_infection_status(GameObject node, int status_code) {
 
+        if (status_code < 0) {
 
-        if (status_code == 1) { // cure it
+
+
+
+
+        }else if(status_code > 5) {
+
+
+        }else if (status_code == 1) { // cure it
             node.transform.Find("NetworkNode");
 
-        }
-        if (status_code == 2) // infection type 1
-        { 
+        } else if (status_code == 2){ // infection type 1
+        
             node.transform.Find("NetworkNode");
 
-        }
-
-        if (status_code == 3) // infection type 2
-        { 
+        }else if (status_code == 3){ // infection type 2
+        
             node.transform.Find("NetworkNode");
 
-        }
-
-        if (status_code == 4)// infection type 3
-        { 
+        }else if (status_code == 4){// infection type 3
+        
             node.transform.Find("NetworkNode");
 
-        }
-
-        if (status_code == 5)// DDOS
+        }else if (status_code == 5)// DDOS
         {
             node.transform.Find("NetworkNode");
 
