@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44353437, g: 0.49283963, b: 0.5724339, a: 1}
+  m_IndirectSpecularColor: {r: 0.44353476, g: 0.49284017, b: 0.5724345, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1285,6 +1285,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -1294,11 +1299,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (6)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -1709,6 +1709,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -1718,11 +1723,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -2235,6 +2235,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: BreakLocations.Array.size
@@ -2255,11 +2260,6 @@ PrefabInstance:
       propertyPath: BreakLocations.Array.data[1]
       value: 
       objectReference: {fileID: 44700609}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee
-      objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3732,6 +3732,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e36dda01a756d43a20f1b3d97a1c43, type: 3}
+--- !u!1 &742417800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7370947603576218425, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8823667360834965111, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 221471961273045390, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364725083786827234, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1342353946789456379, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &752993390
 GameObject:
   m_ObjectHideFlags: 0
@@ -3984,6 +4014,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -3993,11 +4028,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -4160,6 +4190,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -4169,11 +4204,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -4263,6 +4293,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (14)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -4272,11 +4307,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (14)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -4438,6 +4468,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (11)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -4447,11 +4482,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (11)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -4876,6 +4906,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -4885,11 +4920,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (8)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -5955,6 +5985,7 @@ GameObject:
   - component: {fileID: 1238019899}
   - component: {fileID: 1238019898}
   - component: {fileID: 1238019900}
+  - component: {fileID: 1238019901}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -6021,7 +6052,7 @@ MonoBehaviour:
   timeOfDay: {fileID: 541099143}
   Money: {fileID: 375356100}
   Productivity: {fileID: 1627055021}
-  ProductivityNum: 100
+  ProductivityNum: 0
   MinInfectWait: 8
   MaxInfectWait: 12
   ActivationDistance: 3
@@ -6054,6 +6085,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LineMaterial: {fileID: 2100000, guid: 140f8c53b29ea7144b4bd93be47f4236, type: 2}
+--- !u!114 &1238019901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238019897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72782ec88783998409a638e18a3a92b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Investigation: {fileID: 742417800}
+  bubble1: {fileID: 742417804}
+  bubble2: {fileID: 742417802}
+  Text1: {fileID: 742417803}
+  Text2: {fileID: 742417801}
 --- !u!1 &1272537563
 GameObject:
   m_ObjectHideFlags: 0
@@ -6335,6 +6383,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (13)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -6344,11 +6397,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (13)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -7051,6 +7099,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (10)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -7060,11 +7113,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (10)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -7644,6 +7692,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (15)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -7653,11 +7706,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (15)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -7735,11 +7783,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2769533141548981951, guid: 60e037a9dd5a0444398660195f0e88e6,
-        type: 3}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5767630837799177380, guid: 60e037a9dd5a0444398660195f0e88e6,
         type: 3}
       propertyPath: m_Name
@@ -7800,16 +7843,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2737170530399389910, guid: 60e037a9dd5a0444398660195f0e88e6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0c007e0fad7af214f9cde99e811de05d, type: 2}
     - target: {fileID: 6062177109568970857, guid: 60e037a9dd5a0444398660195f0e88e6,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2769533141548981951, guid: 60e037a9dd5a0444398660195f0e88e6,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737170530399389910, guid: 60e037a9dd5a0444398660195f0e88e6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c007e0fad7af214f9cde99e811de05d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60e037a9dd5a0444398660195f0e88e6, type: 3}
 --- !u!4 &1675000061 stripped
@@ -7923,6 +7971,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: BreakLocations.Array.size
@@ -7947,11 +8000,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -8348,6 +8396,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -8357,11 +8410,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (7)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -8907,6 +8955,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: BreakLocations.Array.size
@@ -8931,11 +8984,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -9307,6 +9355,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (12)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -9316,11 +9369,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (12)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
@@ -9493,6 +9541,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1785060261}
     m_Modifications:
+    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
+        type: 3}
+      propertyPath: m_Name
+      value: Employee (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 3291957591800323478, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: Office
@@ -9502,11 +9555,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Index
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
-        type: 3}
-      propertyPath: m_Name
-      value: Employee (9)
       objectReference: {fileID: 0}
     - target: {fileID: 3195807088230282117, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}

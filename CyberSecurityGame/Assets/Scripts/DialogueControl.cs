@@ -35,7 +35,7 @@ public class DialogueControl : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start(DiseaseType code)
+    void Start()
     {
         setConclusion();
         setGreeting();
@@ -228,7 +228,7 @@ public class DialogueControl : MonoBehaviour
             case 3:
                 Text2.GetComponent<TextMeshProUGUI>().SetText(chooseDialogue());
                 bubble2.SetActive(true);
-                state++
+                state++;
                 break;
 
             case 4:
