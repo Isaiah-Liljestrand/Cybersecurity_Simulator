@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class NavigateTo : MonoBehaviour
 {
     public float GetWithinDistance;
-    public GameObject Test;
     private Vector3 Target;
     private bool Walking;
     private Animator Anm;
@@ -18,8 +17,6 @@ public class NavigateTo : MonoBehaviour
         Walking = false;
         Anm = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
-        if (Test)
-            GoToObject(Test);
     }
 
     public void GoToObject(GameObject obj)
