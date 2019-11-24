@@ -9,7 +9,7 @@ public class NetworkControl : MonoBehaviour
 {
     public Material LineMaterial;
 
-    public List<Color> pallete = new List<Color>();
+  
     
     private int[,] Connections = new int[16, 16]
     {//   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
@@ -99,12 +99,12 @@ public class NetworkControl : MonoBehaviour
 
         int i;
         int name_index;
-        Color infection_color;
+        
 
 
-        if (status_code < 0) {
+        if (status_code < 1) {
 
-            status_code = 0;
+            status_code = 1;
 
         }else if(status_code > 5) {
 
@@ -112,42 +112,111 @@ public class NetworkControl : MonoBehaviour
 
         }
 
-        infection_color = pallete[status_code];
+      
 
 
-        if (status_code == 0) { // cure it
-            //name_index = int.Parse(node.gameObject.name.Substring(node.gameObject.name.Length - (node.gameObject.name.Length - 1)));
-            name_index = 0;
-            Debug.Log(node.gameObject.name.Substring(node.gameObject.name.Length - (node.gameObject.name.Length - 1)));
-
+        if (status_code == 1) { // cure it
+            int.TryParse(node.gameObject.name.Substring(4),out name_index);
+            
+            
             for (i = 0;i <= 15; i++) {
 
                 if (lines[name_index,i] != null) {
 
-                    lines[name_index,i].startColor = infection_color;
-                    lines[name_index, i].endColor = infection_color;
+                    lines[name_index,i].startColor = Color.white;
+                    lines[name_index, i].endColor = Color.white;
+
+
+                }
+
+            }
+            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.white;
+
+        } else if (status_code == 2){ // infection type 1
+
+            int.TryParse(node.gameObject.name.Substring(4), out name_index);
+
+
+            for (i = 0; i <= 15; i++)
+            {
+
+                if (lines[name_index, i] != null)
+                {
+
+                    lines[name_index, i].startColor = Color.red;
+                    lines[name_index, i].endColor = Color.red;
 
 
                 }
 
             }
 
-        } else if (status_code == 2){ // infection type 1
-        
-            node.transform.Find("NetworkNode");
+            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+        else if (status_code == 3){ // infection type 2
 
-        }else if (status_code == 3){ // infection type 2
-        
-            node.transform.Find("NetworkNode");
+            int.TryParse(node.gameObject.name.Substring(4), out name_index);
 
-        }else if (status_code == 4){// infection type 3
-        
-            node.transform.Find("NetworkNode");
 
-        }else if (status_code == 5)// DDOS
+            for (i = 0; i <= 15; i++)
+            {
+
+                if (lines[name_index, i] != null)
+                {
+
+                    lines[name_index, i].startColor = Color.yellow;
+                    lines[name_index, i].endColor = Color.yellow;
+
+
+                }
+
+            }
+            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+        }
+        else if (status_code == 4){// infection type 3
+            int.TryParse(node.gameObject.name.Substring(4), out name_index);
+            
+
+            for (i = 0; i <= 15; i++)
+            {
+
+                if (lines[name_index, i] != null)
+                {
+
+                    lines[name_index, i].startColor = Color.green;
+                    lines[name_index, i].endColor = Color.green;
+
+
+                }
+
+            }
+
+            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.green;
+
+
+
+
+        }
+        else if (status_code == 5)// DDOS
         {
-            node.transform.Find("NetworkNode");
+            int.TryParse(node.gameObject.name.Substring(4), out name_index);
 
+
+            for (i = 0; i <= 15; i++)
+            {
+
+                if (lines[name_index, i] != null)
+                {
+
+                    lines[name_index, i].startColor = Color.grey;
+                    lines[name_index, i].endColor = Color.grey;
+
+
+                }
+
+            }
+
+            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.gray;
         }
 
     }
