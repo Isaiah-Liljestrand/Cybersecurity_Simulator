@@ -12,11 +12,19 @@ public class GameControl : MonoBehaviour
     public GameObject NetworkShadow;
     public List<GameObject> BreakObjects;
 
+    public float MinInfectWait;
+    public float MaxInfectWait;
+    private float ChosenInfectWait;
+    private float PassedInfectTime;
+
+    private float PassedDayTime;
+
     // Start is called before the first frame update
     void Start()
     {
         NC = GetComponent<NetworkControl>();
         NC.CreateLines(DeskObjects);
+        ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
     }
 
     // Update is called once per frame
@@ -25,6 +33,14 @@ public class GameControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Clicked();
+        }
+        PassedDayTime += Time.deltaTime;
+        PassedInfectTime += Time.deltaTime;
+        if (PassedInfectTime > ChosenInfectWait)
+        {
+            FirstInfect();
+            ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
+            PassedInfectTime = 0;
         }
     }
 
@@ -70,6 +86,26 @@ public class GameControl : MonoBehaviour
         foreach (GameObject obj in DeskObjects)
         {
             obj.transform.Find("NetworkNode").gameObject.SetActive(false);
+        }
+    }
+
+    private void FirstInfect()
+    {
+        //Choose a random employee and infect
+        List<GameObject> CleanEmployees = new List<GameObject>();
+        foreach(GameObject Employee in EmployeeObjs)
+        {
+            if (Employee.GetComponent<EmployeeControl>().DiseaseCode == DiseaseType.Clean)
+            {
+                CleanEmployees.Add(Employee);
+            }
+        }
+        //Ignoring stats for now.
+        if (CleanEmployees.Count > 0)
+        {
+            int index = Random.Range(0, 15);
+            //Call visual things
+
         }
     }
 }

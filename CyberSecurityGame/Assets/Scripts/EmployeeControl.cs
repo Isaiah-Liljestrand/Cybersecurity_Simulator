@@ -6,7 +6,11 @@ using UnityEngine;
 public class EmployeeControl : MonoBehaviour
 {
     public String Name;
-    public float SpamProb;
+    public int ResistPhish;
+    public int ResistPassword;
+    public int ResistUpload;
+    public DiseaseType DiseaseCode;
+    public bool UnsureWhatDisease;
 
     public GameObject Office;
 
