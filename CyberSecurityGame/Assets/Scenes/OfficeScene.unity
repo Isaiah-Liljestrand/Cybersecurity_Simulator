@@ -6107,7 +6107,7 @@ MonoBehaviour:
   MaxInitialInfectWait: 15
   MinInfectWait: 15
   MaxInfectWait: 20
-  ActivationDistance: 3
+  ActivationDistance: 6
   ExclamationPrefab: {fileID: 6591892922039328207, guid: 2f8514e7433bbba4cb4220e06ccb0fc7,
     type: 3}
 --- !u!4 &1238019899
