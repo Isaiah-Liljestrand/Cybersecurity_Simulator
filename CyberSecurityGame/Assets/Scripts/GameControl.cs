@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour
             {
                 TargetObj.SetActive(true);
                 TargetObj.transform.position = hit.point;
-                PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point);
+                PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point, 3);
             }
         }
     }
@@ -48,7 +48,7 @@ public class GameControl : MonoBehaviour
     {
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
-        PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position);
+        PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 4);
         ShowNetwork();
     }
 

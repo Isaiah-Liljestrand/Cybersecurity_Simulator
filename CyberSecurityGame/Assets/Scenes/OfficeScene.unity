@@ -1261,7 +1261,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Office
       value: 
-      objectReference: {fileID: 447202470}
+      objectReference: {fileID: 372990683}
     - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: m_Name
@@ -4020,7 +4020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Office
       value: 
-      objectReference: {fileID: 1980598796}
+      objectReference: {fileID: 447202470}
     - target: {fileID: 7386663518324266271, guid: 4bd8ffbe50e9fda4a8f37cce58c1e63f,
         type: 3}
       propertyPath: m_Name

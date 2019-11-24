@@ -19,13 +19,14 @@ public class NavigateTo : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
     }
 
-    public void GoToObject(GameObject obj)
+    public void GoToObject(GameObject obj, float Distance)
     {
-        GoToPosition(obj.transform.position);
+        GoToPosition(obj.transform.position, Distance);
     }
 
-    public void GoToPosition(Vector3 pos)
+    public void GoToPosition(Vector3 pos, float Distance)
     {
+        GetWithinDistance = Distance;
         Target = pos;
         Walking = true;
         Anm.SetBool("Walking", true);

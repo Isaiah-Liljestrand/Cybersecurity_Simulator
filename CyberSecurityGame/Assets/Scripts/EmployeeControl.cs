@@ -10,12 +10,12 @@ public class EmployeeControl : MonoBehaviour
 
     public GameObject Office;
 
-    public float BreakChance;
     public float BreakTimeMin;
     public float BreakTimeMax;
-    public float WorkTime;
+    public float WorkTimeMin;
+    public float WorkTimeMax;
 
-    private float ChosenBreakTime;
+    private float ChosenTime;
     private float PassedTime;
 
     private bool OnBreak;
@@ -27,7 +27,7 @@ public class EmployeeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OnBreak = false;
+        OnBreak = true;
         PassedTime = 0;
         nav = GetComponent<NavigateTo>();
         control = GameObject.Find("Control").GetComponent<GameControl>();
@@ -39,25 +39,23 @@ public class EmployeeControl : MonoBehaviour
         if (!OnBreak)
         {
             PassedTime += Time.deltaTime;
-            if (PassedTime > WorkTime)
+            if (PassedTime > ChosenTime)
             {
-                if (UnityEngine.Random.Range(0f, 1f) < BreakChance)
-                {
-                    ChosenBreakTime = UnityEngine.Random.Range(BreakTimeMin, BreakTimeMax);
-                    OnBreak = true;
-                    PassedTime = 0;
-                    nav.GoToObject(control.BreakObjects[UnityEngine.Random.Range(0, control.BreakObjects.Count)]);
-                }
+                ChosenTime = UnityEngine.Random.Range(BreakTimeMin, BreakTimeMax);
+                OnBreak = true;
+                PassedTime = 0;
+                nav.GoToObject(control.BreakObjects[UnityEngine.Random.Range(0, control.BreakObjects.Count)], 6);
             }
         }
         else
         {
             PassedTime += Time.deltaTime;
-            if (PassedTime > ChosenBreakTime)
+            if (PassedTime > ChosenTime)
             {
+                ChosenTime = UnityEngine.Random.Range(WorkTimeMin, WorkTimeMax);
                 OnBreak = false;
                 PassedTime = 0;
-                nav.GoToObject(Office.transform.Find("StandingLocation").gameObject);
+                nav.GoToObject(Office.transform.Find("StandingLocation").gameObject, 3);
             }
         }
     }
