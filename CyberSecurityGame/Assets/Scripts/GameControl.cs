@@ -107,8 +107,11 @@ public class GameControl : MonoBehaviour
             //Bring up UI stuff
             Pause();
             CurrentConversationIndex = obj.GetComponent<EmployeeControl>().Index;
-            if (obj.GetComponent<EmployeeControl>().CanInvestigate) 
+            if (obj.GetComponent<EmployeeControl>().CanInvestigate)
+            {
+                Debug.Log("Opening dialog");
                 GetComponent<DialogueControl>().startDialogue(obj.GetComponent<EmployeeControl>().DiseaseCode);
+            }
         }
         else
         {
