@@ -55,7 +55,7 @@ public class EmployeeControl : MonoBehaviour
             {
                 OnBreak = false;
                 PassedTime = 0;
-                nav.GoToObject(Office);
+                nav.GoToObject(Office.transform.Find("StandingLocation").gameObject);
             }
         }
     }
