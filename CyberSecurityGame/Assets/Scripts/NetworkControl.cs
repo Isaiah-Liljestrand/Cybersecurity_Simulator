@@ -93,12 +93,27 @@ public class NetworkControl : MonoBehaviour
         LineObject.SetActive(false);
     }
 
-    public void set_infection_status(GameObject node, DiseaseType status_code) {
+    public void set_infection_status(GameObject node, int status_code) {
 
         int i;
         int name_index;
+        
 
-        if (status_code == DiseaseType.Clean) { // cure it
+
+        if (status_code < 1) {
+
+            status_code = 1;
+
+        }else if(status_code > 5) {
+
+            status_code = 5;
+
+        }
+
+      
+
+
+        if (status_code == 1) { // cure it
             int.TryParse(node.gameObject.name.Substring(4),out name_index);
             
             
@@ -115,7 +130,7 @@ public class NetworkControl : MonoBehaviour
             }
             node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.white;
 
-        } else if (status_code == DiseaseType.Password){ // infection type 1
+        } else if (status_code == 2){ // infection type 1
 
             int.TryParse(node.gameObject.name.Substring(4), out name_index);
 
@@ -136,7 +151,7 @@ public class NetworkControl : MonoBehaviour
 
             node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
-        else if (status_code == DiseaseType.Phish){ // infection type 2
+        else if (status_code == 3){ // infection type 2
 
             int.TryParse(node.gameObject.name.Substring(4), out name_index);
 
@@ -156,7 +171,7 @@ public class NetworkControl : MonoBehaviour
             }
             node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         }
-        else if (status_code == DiseaseType.Upload){// infection type 3
+        else if (status_code == 4){// infection type 3
             int.TryParse(node.gameObject.name.Substring(4), out name_index);
             
 
@@ -180,7 +195,7 @@ public class NetworkControl : MonoBehaviour
 
 
         }
-        else if (status_code == DiseaseType.DOS)// DDOS
+        else if (status_code == 5)// DDOS
         {
             int.TryParse(node.gameObject.name.Substring(4), out name_index);
 

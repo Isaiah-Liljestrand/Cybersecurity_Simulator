@@ -21,9 +21,6 @@ public class GameControl : MonoBehaviour
 
     private List<DiseaseType> AvailableDiseaseTypes;
 
-    public float ActivationDistance; //Distance at which the player can investigate/talk.
-    public GameObject ExclamationPrefab; //This is just a reference which will be instantiated in ComputerControl and EmployeeControl
-
     // Start is called before the first frame update
     void Start()
     {
@@ -62,44 +59,7 @@ public class GameControl : MonoBehaviour
                 TargetObj.SetActive(true);
                 TargetObj.transform.position = hit.point;
                 PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point, 3);
-                HideNetwork();
             }
-        }
-    }
-
-    public void PersonClicked(GameObject obj)
-    {
-        if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
-        {
-            //Bring up UI stuff
-        }
-        else
-        {
-            ObjectClicked(obj);
-        }
-    }
-
-    public void ComputerClicked(GameObject obj)
-    {
-        if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
-        {
-            //Bring up UI stuff
-        }
-        else
-        {
-            ObjectClicked(obj);
-        }
-    }
-
-    public void PlayerComputerClicked(GameObject obj)
-    {
-        if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
-        {
-            ShowNetwork();
-        }
-        else
-        {
-            ObjectClicked(obj);
         }
     }
 
@@ -108,8 +68,8 @@ public class GameControl : MonoBehaviour
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
         PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 4);
-        //NC.set_infection_status(obj, 0);
-        //ShowNetwork();
+        NC.set_infection_status(obj, 0);
+        ShowNetwork();
     }
 
     public void ShowNetwork()
@@ -150,13 +110,12 @@ public class GameControl : MonoBehaviour
             //Ignoring stats for now.
             if (CleanEmployees.Count > 0)
             {
-                int index = Random.Range(0, CleanEmployees.Count - 1);
-                Debug.Log("Infecting " + index);
+                int index = Random.Range(0, 15);
                 //Call visual things
                 DiseaseType ChosenDisease = AvailableDiseaseTypes[Random.Range(0, AvailableDiseaseTypes.Count - 1)];
                 AvailableDiseaseTypes.Remove(ChosenDisease);
 
-                DeskObjects[CleanEmployees[index]].GetComponent<ComputerControl>().Infected(ChosenDisease, 5, true);
+                DeskObjects[CleanEmployees[index]].GetComponent<ComputerControl>().Infected(ChosenDisease, 30, true);
                 EmployeeObjs[CleanEmployees[index]].GetComponent<EmployeeControl>().Infected(ChosenDisease, false);
             }
         }
