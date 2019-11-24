@@ -74,13 +74,13 @@ public class EmployeeControl : MonoBehaviour
     public void Pause()
     {
         Paused = true;
-        nav.Agent.Stop();
+        nav.Agent.isStopped = true;
     }
 
     public void Resume()
     {
         Paused = false;
-        nav.Agent.Resume();
+        nav.Agent.isStopped = false;
     }
 
     //Returns true if this computer resists the disease
