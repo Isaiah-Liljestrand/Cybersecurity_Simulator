@@ -27,7 +27,8 @@ public class NetworkControl : MonoBehaviour
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1}, //14
         { 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0}  //15
     };
-    private List<List<LineRenderer>> lines;
+    private LineRenderer[,] lines = new LineRenderer[16, 16];
+    //private List<List<LineRenderer>> lines;
     private GameObject LineObject;
 
     public void ShowLines()
@@ -47,14 +48,20 @@ public class NetworkControl : MonoBehaviour
         {
             CoordinatesOfNodes.Add(obj.transform.Find("NetworkNode").transform.position);
         }
-
-        LineObject = new GameObject();
-        LineObject.layer = 8;
-        int count = 0;
-        lines = new List<List<LineRenderer>>();
         for (int i = 0; i < 16; i++)
         {
-            List<LineRenderer> newlist = new List<LineRenderer>();
+            for (int j = 0; j < 16; j++)
+            {
+                lines[i, j] = null;
+            }
+        }
+
+            LineObject = new GameObject();
+        LineObject.layer = 8;
+        //lines = new List<List<LineRenderer>>();
+        for (int i = 0; i < 16; i++)
+        {
+            //List<LineRenderer> newlist = new List<LineRenderer>();
             for (int j = 0; j < 16; j++)
             {
                 if (j >= i && Connections[i, j] == 1)
@@ -64,17 +71,16 @@ public class NetworkControl : MonoBehaviour
                     ChildLine.layer = 8;
                     ChildLine.AddComponent<LineRenderer>();
                     LineRenderer newline = ChildLine.GetComponent<LineRenderer>();
-                    newlist.Add(newline);
+                    lines[i, j] = newline;
                     newline.startColor = Color.white;
                     newline.endColor = Color.white;
                     newline.startWidth = 0.5f;
                     newline.startWidth = 0.5f;
                     newline.material = LineMaterial;
                     newline.SetPositions(new Vector3[] {CoordinatesOfNodes[i], CoordinatesOfNodes[j]});
-                    count++;
                 }
             }
-            lines.Add(newlist);
+            //lines.Add(newlist);
         }
         LineObject.SetActive(false);
     }
