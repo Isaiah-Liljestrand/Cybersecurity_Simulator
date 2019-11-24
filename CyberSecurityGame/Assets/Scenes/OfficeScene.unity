@@ -7344,10 +7344,10 @@ MonoBehaviour:
   Money: {fileID: 375356100}
   Productivity: {fileID: 1627055021}
   ProductivityNum: 100
-  MinInitialInfectWait: 8
-  MaxInitialInfectWait: 50
-  MinInfectWait: 30
-  MaxInfectWait: 40
+  MinInitialInfectWait: 20
+  MaxInitialInfectWait: 30
+  MinInfectWait: 20
+  MaxInfectWait: 30
   ActivationDistance: 6
   ExclamationPrefab: {fileID: 6591892922039328207, guid: 2f8514e7433bbba4cb4220e06ccb0fc7,
     type: 3}
