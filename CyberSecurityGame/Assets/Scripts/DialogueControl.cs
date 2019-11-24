@@ -86,8 +86,8 @@ public class DialogueControl : MonoBehaviour
         Dos_idkInquiry.Add("I think my computer is malfunctioning");
         Dos_idkProblem.Add("Has there been anything weird happen to you or your computer before this issue started.");
         Dos_idkProblem.Add("Have you brought in any foreign data or visited odd websites recently?");
-        Dos_idkResponse.Add("");
-        Dos_idkResponse.Add("");
+        Dos_idkResponse.Add("I don't think so, it's been business as usual today.");
+        Dos_idkResponse.Add("I don't think anything has been off today. I never did anything that goes against our company cyber security policy.");
     }
 
     private string chooseDialogue(DiseaseType code, int conv)
@@ -99,6 +99,7 @@ public class DialogueControl : MonoBehaviour
                 break;
 
         }
+        return "Test";
     }
 
 
