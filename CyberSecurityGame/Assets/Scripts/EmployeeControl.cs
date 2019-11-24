@@ -126,7 +126,7 @@ public class EmployeeControl : MonoBehaviour
 
     public void Clean()
     {
-        DiseaseCode = clean;
+        DiseaseCode = DiseaseType.Clean;
         control.returnProductivity();
         control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
     }
