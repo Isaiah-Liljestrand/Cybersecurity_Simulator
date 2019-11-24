@@ -11,6 +11,7 @@ public class EmployeeControl : MonoBehaviour
     public int ResistPassword;
     public int ResistUpload;
     public DiseaseType DiseaseCode;
+    public bool CanInvestigate;
     public bool Mystery;
 
     public GameObject Office;
@@ -31,6 +32,8 @@ public class EmployeeControl : MonoBehaviour
 
     private bool Paused;
 
+    private GameObject ExclamationMark;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,7 @@ public class EmployeeControl : MonoBehaviour
     {
         if (!Paused)
         {
-            if (!OnBreak)
+            if (!OnBreak && !CanInvestigate)
             {
                 PassedTime += Time.deltaTime;
                 if (PassedTime > ChosenTime)
@@ -116,5 +119,40 @@ public class EmployeeControl : MonoBehaviour
         control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, waitTime, hidden);
         DiseaseCode = Disease;
         this.Mystery = Mystery;
+        CanInvestigate = true;
+        control.reduceProductivity();
+        ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
+    }
+
+    public void Clean()
+    {
+        DiseaseCode = DiseaseType.Clean;
+        control.returnProductivity();
+        control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
+    }
+
+    public void Research()
+    {
+        List<EmployeeControl> infectedEmployees = new List<EmployeeControl>();
+        foreach(GameObject Employee in control.EmployeeObjs)
+        {
+            if(Employee.GetComponent<EmployeeControl>().DiseaseCode == this.DiseaseCode)
+            {
+                infectedEmployees.Add(Employee.GetComponent<EmployeeControl>());
+            }
+        }
+        foreach(EmployeeControl Employee in infectedEmployees)
+        {
+            Employee.Clean();
+        }
+    }
+
+
+
+    public void SolveIssue()
+    {
+        CanInvestigate = false;
+        Destroy(ExclamationMark);
+        ExclamationMark = null;
     }
 }
