@@ -97,6 +97,7 @@ public class ComputerControl : MonoBehaviour
     public void CreateIssue()
     {
         ExclamationMark = Instantiate(Control.ExclamationPrefab, this.transform);
+        Hidden = false;
     }
 
     public void SolveIssue()

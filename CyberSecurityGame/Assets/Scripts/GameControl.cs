@@ -36,6 +36,8 @@ public class GameControl : MonoBehaviour
 
     private bool Paused;
 
+    private int CurrentConversationIndex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,8 +103,10 @@ public class GameControl : MonoBehaviour
         if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
             //Bring up UI stuff
+            Pause();
+            CurrentConversationIndex = obj.GetComponent<EmployeeControl>().Index;
             if (obj.GetComponent<EmployeeControl>().CanInvestigate) ;
-            //GetComponent<DialogueControl>().startDialogue(obj.GetComponent<EmployeeControl>().DiseaseCode);
+                //GetComponent<DialogueControl>().startDialogue(obj.GetComponent<EmployeeControl>().DiseaseCode);
         }
         else
         {
@@ -214,6 +218,12 @@ public class GameControl : MonoBehaviour
         {
             Employee.GetComponent<EmployeeControl>().Resume();
         }
+    }
+
+    public void ConversationEnded()
+    {
+        Resume();
+        DeskObjects[CurrentConversationIndex].GetComponent<ComputerControl>().CreateIssue();
     }
 
     public void reduceProductivity()
