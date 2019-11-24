@@ -33,6 +33,12 @@ public class EmployeeControl : MonoBehaviour
     private bool Paused;
 
     private GameObject ExclamationMark;
+    public float CleanTime;
+    public float ResearchTime;
+
+    private float PassedCRTime;
+    public bool Cleaning;
+    private bool Researching;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +79,20 @@ public class EmployeeControl : MonoBehaviour
                     PassedTime = 0;
                     nav.GoToObject(Office.transform.Find("StandingLocation").gameObject, 3);
                 }
+            }
+            if (Cleaning || Researching)
+                PassedCRTime += Time.deltaTime;
+            if (Cleaning && PassedCRTime > CleanTime)
+            {
+                PassedCRTime = 0;
+                control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
+                Cleaning = false;
+            }
+            if (Researching && PassedCRTime > ResearchTime)
+            {
+                PassedCRTime = 0;
+                FinishResearch();
+                Researching = false;
             }
         }
     }
@@ -131,26 +151,30 @@ public class EmployeeControl : MonoBehaviour
     {
         DiseaseCode = DiseaseType.Clean;
         control.returnProductivity();
-        control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
+        Cleaning = true;
+        //control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
     }
 
     public void Research()
     {
+        Researching = true;
+    }
+
+    private void FinishResearch()
+    {
         List<EmployeeControl> infectedEmployees = new List<EmployeeControl>();
-        foreach(GameObject Employee in control.EmployeeObjs)
+        foreach (GameObject Employee in control.EmployeeObjs)
         {
-            if(Employee.GetComponent<EmployeeControl>().DiseaseCode == this.DiseaseCode)
+            if (Employee.GetComponent<EmployeeControl>().DiseaseCode == this.DiseaseCode)
             {
                 infectedEmployees.Add(Employee.GetComponent<EmployeeControl>());
             }
         }
-        foreach(EmployeeControl Employee in infectedEmployees)
+        foreach (EmployeeControl Employee in infectedEmployees)
         {
             Employee.Clean();
         }
     }
-
-
 
     public void SolveIssue()
     {

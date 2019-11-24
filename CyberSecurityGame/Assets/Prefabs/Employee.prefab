@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GetWithinDistance: 4
+  Agent: {fileID: 0}
 --- !u!136 &6242984893410680033
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -195,16 +196,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
+  Index: 0
   ResistPhish: 0
   ResistPassword: 0
   ResistUpload: 0
   DiseaseCode: 0
-  UnsureWhatDisease: 0
+  CanInvestigate: 0
+  Mystery: 0
   Office: {fileID: 0}
   BreakTimeMin: 5
   BreakTimeMax: 30
   WorkTimeMin: 20
   WorkTimeMax: 60
+  CleanTime: 10
+  ResearchTime: 40
+  Cleaning: 0
 --- !u!114 &-8835472636928304824
 MonoBehaviour:
   m_ObjectHideFlags: 0
