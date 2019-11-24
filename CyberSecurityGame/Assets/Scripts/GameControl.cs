@@ -157,12 +157,14 @@ public class GameControl : MonoBehaviour
     public void Clean()
     {
         Resume();
+        EmployeeComputerWindow.SetActive(false);
         EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().Clean();
     }
 
     public void Research()
     {
         Resume();
+        EmployeeComputerWindow.SetActive(false);
         EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().Research();
     }
 
