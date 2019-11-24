@@ -9,7 +9,7 @@ public class NavigateTo : MonoBehaviour
     private Vector3 Target;
     private bool Walking;
     private Animator Anm;
-    private NavMeshAgent Agent;
+    public NavMeshAgent Agent;
 
     // Start is called before the first frame update
     void Start()

@@ -12,6 +12,8 @@ public class ComputerControl : MonoBehaviour
     private GameControl Control;
     private NetworkControl Net;
 
+    private bool Paused;
+
     private void Start()
     {
         Control = GameObject.Find("Control").GetComponent<GameControl>();
@@ -29,15 +31,28 @@ public class ComputerControl : MonoBehaviour
 
     private void Update()
     {
-        if (Disease != DiseaseType.Clean && Disease != DiseaseType.DOS)
+        if (!Paused)
         {
-            PassedTime += Time.deltaTime;
-            if (PassedTime > AttackWait)
+            if (Disease != DiseaseType.Clean && Disease != DiseaseType.DOS)
             {
-                Attack();
-                PassedTime = 0;
+                PassedTime += Time.deltaTime;
+                if (PassedTime > AttackWait)
+                {
+                    Attack();
+                    PassedTime = 0;
+                }
             }
         }
+    }
+
+    public void Pause()
+    {
+        Paused = true;
+    }
+
+    public void Resume()
+    {
+        Paused = false;
     }
 
     //Attack connected nodes
@@ -66,7 +81,7 @@ public class ComputerControl : MonoBehaviour
             if (!Employee.PassedResistanceCheck(Disease))
             {
                 Control.DeskObjects[ChosenIndex].GetComponent<ComputerControl>().Infected(Disease, AttackWait, Hidden);
-                Employee.Infected(Disease, true);
+                Employee.Infected(Disease, true, AttackWait, Hidden);
             }
         }
     }

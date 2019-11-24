@@ -24,6 +24,8 @@ public class GameControl : MonoBehaviour
     public float ActivationDistance; //Distance at which the player can investigate/talk.
     public GameObject ExclamationPrefab; //This is just a reference which will be instantiated in ComputerControl and EmployeeControl
 
+    private bool Paused;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,17 +38,20 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!Paused)
         {
-            Clicked();
-        }
-        PassedDayTime += Time.deltaTime;
-        PassedInfectTime += Time.deltaTime;
-        if (PassedInfectTime > ChosenInfectWait)
-        {
-            FirstInfect();
-            ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
-            PassedInfectTime = 0;
+            if (Input.GetMouseButtonDown(0))
+            {
+                Clicked();
+            }
+            PassedDayTime += Time.deltaTime;
+            PassedInfectTime += Time.deltaTime;
+            if (PassedInfectTime > ChosenInfectWait)
+            {
+                FirstInfect();
+                ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
+                PassedInfectTime = 0;
+            }
         }
     }
 
@@ -137,15 +142,13 @@ public class GameControl : MonoBehaviour
         if (AvailableDiseaseTypes.Count > 0)
         {
             //Choose a random employee and infect
-            List<int> CleanEmployees = new List<int>();
-            int i = 0;
+            List<EmployeeControl> CleanEmployees = new List<EmployeeControl>();
             foreach (GameObject Employee in EmployeeObjs)
             {
                 if (Employee.GetComponent<EmployeeControl>().DiseaseCode == DiseaseType.Clean)
                 {
-                    CleanEmployees.Add(i);
+                    CleanEmployees.Add(Employee.GetComponent<EmployeeControl>());
                 }
-                i++;
             }
             //Ignoring stats for now.
             if (CleanEmployees.Count > 0)
@@ -155,10 +158,35 @@ public class GameControl : MonoBehaviour
                 //Call visual things
                 DiseaseType ChosenDisease = AvailableDiseaseTypes[Random.Range(0, AvailableDiseaseTypes.Count - 1)];
                 AvailableDiseaseTypes.Remove(ChosenDisease);
-
-                DeskObjects[CleanEmployees[index]].GetComponent<ComputerControl>().Infected(ChosenDisease, 5, true);
-                EmployeeObjs[CleanEmployees[index]].GetComponent<EmployeeControl>().Infected(ChosenDisease, false);
+                float wait = 5;
+                CleanEmployees[index].Infected(ChosenDisease, false, wait, true);
             }
+        }
+    }
+
+    public void Pause()
+    {
+        Paused = true;
+        foreach(GameObject Desk in DeskObjects)
+        {
+            Desk.GetComponent<ComputerControl>().Pause();
+        }
+        foreach (GameObject Employee in EmployeeObjs)
+        {
+            Employee.GetComponent<EmployeeControl>().Pause();
+        }
+    }
+
+    public void Resume()
+    {
+        Paused = false;
+        foreach (GameObject Desk in DeskObjects)
+        {
+            Desk.GetComponent<ComputerControl>().Resume();
+        }
+        foreach (GameObject Employee in EmployeeObjs)
+        {
+            Employee.GetComponent<EmployeeControl>().Resume();
         }
     }
 }
