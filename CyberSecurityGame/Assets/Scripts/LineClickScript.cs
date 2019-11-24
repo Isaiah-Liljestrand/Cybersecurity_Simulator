@@ -9,11 +9,12 @@ public class LineClickScript : MonoBehaviour
     public int x;
     public int y;
     public NetworkControl net;
+    public GameControl gam;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gam = GameObject.Find("Control").GetComponent<GameControl>();
     }
 
     // Update is called once per frame
@@ -33,6 +34,8 @@ public class LineClickScript : MonoBehaviour
             parent_line.GetComponent<LineRenderer>().endColor = Color.white;
             net.Connections[x, y] = 1;
             net.Connections[y, x] = 1;
+
+            gam.returnProductivity(10);
         }
         else {
 
@@ -41,6 +44,7 @@ public class LineClickScript : MonoBehaviour
             parent_line.GetComponent<LineRenderer>().endColor = Color.cyan;
             net.Connections[x, y] = 2;
             net.Connections[y, x] = 2;
+            gam.reduceProductivity(10);
 
         }       
 

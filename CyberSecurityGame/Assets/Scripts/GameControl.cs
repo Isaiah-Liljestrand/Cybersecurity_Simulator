@@ -256,15 +256,15 @@ public class GameControl : MonoBehaviour
         DeskObjects[CurrentConversationIndex].GetComponent<ComputerControl>().CreateIssue();
     }
 
-    public void reduceProductivity()
+    public void reduceProductivity(int num)
     {
-        ProductivityNum -= 20;
+        ProductivityNum -= num;
         Productivity.GetComponent<TextMeshProUGUI>().text = "$" + ProductivityNum + "/hr";
     }
 
-    public void returnProductivity()
+    public void returnProductivity(int num)
     {
-        ProductivityNum += 20;
+        ProductivityNum += num;
         Productivity.GetComponent<TextMeshProUGUI>().text = "$" + ProductivityNum + "/hr";
     }
 
