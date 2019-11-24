@@ -29,6 +29,8 @@ public class EmployeeControl : MonoBehaviour
 
     private GameControl control;
 
+    private bool Paused;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,28 +44,43 @@ public class EmployeeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!OnBreak)
+        if (!Paused)
         {
-            PassedTime += Time.deltaTime;
-            if (PassedTime > ChosenTime)
+            if (!OnBreak)
             {
-                ChosenTime = UnityEngine.Random.Range(BreakTimeMin, BreakTimeMax);
-                OnBreak = true;
-                PassedTime = 0;
-                nav.GoToObject(control.BreakObjects[UnityEngine.Random.Range(0, control.BreakObjects.Count)], 6);
+                PassedTime += Time.deltaTime;
+                if (PassedTime > ChosenTime)
+                {
+                    ChosenTime = UnityEngine.Random.Range(BreakTimeMin, BreakTimeMax);
+                    OnBreak = true;
+                    PassedTime = 0;
+                    nav.GoToObject(control.BreakObjects[UnityEngine.Random.Range(0, control.BreakObjects.Count)], 6);
+                }
+            }
+            else
+            {
+                PassedTime += Time.deltaTime;
+                if (PassedTime > ChosenTime)
+                {
+                    ChosenTime = UnityEngine.Random.Range(WorkTimeMin, WorkTimeMax);
+                    OnBreak = false;
+                    PassedTime = 0;
+                    nav.GoToObject(Office.transform.Find("StandingLocation").gameObject, 3);
+                }
             }
         }
-        else
-        {
-            PassedTime += Time.deltaTime;
-            if (PassedTime > ChosenTime)
-            {
-                ChosenTime = UnityEngine.Random.Range(WorkTimeMin, WorkTimeMax);
-                OnBreak = false;
-                PassedTime = 0;
-                nav.GoToObject(Office.transform.Find("StandingLocation").gameObject, 3);
-            }
-        }
+    }
+
+    public void Pause()
+    {
+        Paused = true;
+        nav.Agent.Stop();
+    }
+
+    public void Resume()
+    {
+        Paused = false;
+        nav.Agent.Resume();
     }
 
     //Returns true if this computer resists the disease
