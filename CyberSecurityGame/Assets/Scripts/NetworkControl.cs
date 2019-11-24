@@ -94,14 +94,13 @@ public class NetworkControl : MonoBehaviour
 
     public void set_infection_status(GameObject node, int status_code) {
 
-        if (status_code < 0) {
+        if (status_code < 1) {
 
-
-
-
+            status_code = 1;
 
         }else if(status_code > 5) {
 
+            status_code = 5;
 
         }else if (status_code == 1) { // cure it
             node.transform.Find("NetworkNode");
