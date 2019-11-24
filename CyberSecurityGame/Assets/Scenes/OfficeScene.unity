@@ -3732,6 +3732,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e36dda01a756d43a20f1b3d97a1c43, type: 3}
+--- !u!1 &742417800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7370947603576218425, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8823667360834965111, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 221471961273045390, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364725083786827234, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &742417804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1342353946789456379, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 742417799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &752993390
 GameObject:
   m_ObjectHideFlags: 0
@@ -5955,6 +5985,7 @@ GameObject:
   - component: {fileID: 1238019899}
   - component: {fileID: 1238019898}
   - component: {fileID: 1238019900}
+  - component: {fileID: 1238019901}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -6056,6 +6087,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LineMaterial: {fileID: 2100000, guid: 140f8c53b29ea7144b4bd93be47f4236, type: 2}
+--- !u!114 &1238019901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238019897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72782ec88783998409a638e18a3a92b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Investigation: {fileID: 742417800}
+  bubble1: {fileID: 742417804}
+  bubble2: {fileID: 742417802}
+  Text1: {fileID: 742417803}
+  Text2: {fileID: 742417801}
 --- !u!1 &1272537563
 GameObject:
   m_ObjectHideFlags: 0

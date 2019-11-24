@@ -18,6 +18,8 @@ public class ComputerControl : MonoBehaviour
 
     private GameObject ExclamationMark;
 
+    private bool CanInvestigate;
+
     private void Start()
     {
         Control = GameObject.Find("Control").GetComponent<GameControl>();
@@ -103,11 +105,13 @@ public class ComputerControl : MonoBehaviour
     {
         ExclamationMark = Instantiate(Control.ExclamationPrefab, this.transform);
         Hidden = false;
+        CanInvestigate = true;
     }
 
     public void SolveIssue()
     {
         Destroy(ExclamationMark);
         ExclamationMark = null;
+        CanInvestigate = false;
     }
 }
