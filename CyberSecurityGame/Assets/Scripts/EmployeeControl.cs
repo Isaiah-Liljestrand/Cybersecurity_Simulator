@@ -13,6 +13,7 @@ public class EmployeeControl : MonoBehaviour
     public float BreakChance;
     public float BreakTimeMin;
     public float BreakTimeMax;
+    public float WorkTime;
 
     private float ChosenBreakTime;
     private float PassedTime;
@@ -35,11 +36,16 @@ public class EmployeeControl : MonoBehaviour
     {
         if (!OnBreak)
         {
-            if (UnityEngine.Random.Range(0f, 1f) < BreakChance)
+            PassedTime += Time.deltaTime;
+            if (PassedTime > WorkTime)
             {
-                ChosenBreakTime = UnityEngine.Random.Range(BreakTimeMin, BreakTimeMax);
-                OnBreak = true;
-                nav.GoToObject(BreakLocations[UnityEngine.Random.Range(0, BreakLocations.Count)]);
+                if (UnityEngine.Random.Range(0f, 1f) < BreakChance)
+                {
+                    ChosenBreakTime = UnityEngine.Random.Range(BreakTimeMin, BreakTimeMax);
+                    OnBreak = true;
+                    PassedTime = 0;
+                    nav.GoToObject(BreakLocations[UnityEngine.Random.Range(0, BreakLocations.Count)]);
+                }
             }
         }
         else
