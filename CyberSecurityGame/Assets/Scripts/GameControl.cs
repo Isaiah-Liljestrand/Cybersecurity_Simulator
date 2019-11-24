@@ -217,7 +217,12 @@ public class GameControl : MonoBehaviour
     public void reduceProductivity()
     {
         ProductivityNum -= 20;
-        //todo
+        Productivity.GetComponent<TextMeshProUGUI>().text = "$" + ProductivityNum + "/hr";
+    }
+
+    public void returnProductivity()
+    {
+        ProductivityNum += 20;
         Productivity.GetComponent<TextMeshProUGUI>().text = "$" + ProductivityNum + "/hr";
     }
 

@@ -124,6 +124,13 @@ public class EmployeeControl : MonoBehaviour
         ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
     }
 
+    public void Clean()
+    {
+        DiseaseCode = clean;
+        control.returnProductivity();
+        control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
+    }
+
     public void SolveIssue()
     {
         CanInvestigate = false;
