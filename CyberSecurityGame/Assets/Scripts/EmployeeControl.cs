@@ -131,6 +131,24 @@ public class EmployeeControl : MonoBehaviour
         control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
     }
 
+    public void Research()
+    {
+        List<EmployeeControl> infectedEmployees = new List<EmployeeControl>();
+        foreach(GameObject Employee in control.EmployeeObjs)
+        {
+            if(Employee.GetComponent<EmployeeControl>().DiseaseCode == this.DiseaseCode)
+            {
+                infectedEmployees.Add(Employee.GetComponent<EmployeeControl>());
+            }
+        }
+        foreach(EmployeeControl Employee in infectedEmployees)
+        {
+            Employee.Clean();
+        }
+    }
+
+
+
     public void SolveIssue()
     {
         CanInvestigate = false;
