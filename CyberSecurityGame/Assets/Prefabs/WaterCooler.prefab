@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1981745961633604240}
   - component: {fileID: 5241092758931218025}
   - component: {fileID: 7860200690044377244}
+  - component: {fileID: 2850328038247486780}
   m_Layer: 0
   m_Name: WaterCooler
   m_TagString: Untagged
@@ -26,13 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5800860707254020789}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children: []
+  m_Children:
+  - {fileID: 2077119820513080587}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &1981745961633604240
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59,7 +61,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -389402008792246631, guid: cc9945e53fd9b3e4dac0b10be3f1a5e3, type: 3}
-  - {fileID: 695809492006785672, guid: cc9945e53fd9b3e4dac0b10be3f1a5e3, type: 3}
+  - {fileID: 2100000, guid: 1c619c233bb1145449ae875eff986b47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,3 +94,45 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03001953, y: 0.029999994, z: 0.06895516}
   m_Center: {x: 0.00000093877316, y: 0, z: 0.03447758}
+--- !u!114 &2850328038247486780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800860707254020789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a6b7fedbc50974dbed4d4435a1eddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8868394180488105351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2077119820513080587}
+  m_Layer: 0
+  m_Name: StandingLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2077119820513080587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868394180488105351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0386, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7411682318813976742}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

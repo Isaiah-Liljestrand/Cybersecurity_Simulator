@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    void Clicked()
+    private void Clicked()
     {
         //Check to see if the floor was clicked
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -37,5 +37,12 @@ public class GameControl : MonoBehaviour
                 PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point);
             }
         }
+    }
+
+    public void ObjectClicked(GameObject obj)
+    {
+        TargetObj.SetActive(true);
+        TargetObj.transform.position = obj.transform.position;
+        PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position);
     }
 }

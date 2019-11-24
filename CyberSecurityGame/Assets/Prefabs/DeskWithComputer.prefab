@@ -195,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7372925203481706167}
   - component: {fileID: 2534207890237199791}
+  - component: {fileID: -2769533141548981951}
   m_Layer: 0
   m_Name: DeskWithComputer
   m_TagString: Untagged
@@ -234,6 +235,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.1325426, y: 3.4123554, z: 2.8485034}
   m_Center: {x: -0.0200243, y: 1.2061777, z: -0.3190776}
+--- !u!114 &-2769533141548981951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767630837799177380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a6b7fedbc50974dbed4d4435a1eddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6062177109568970857
 GameObject:
   m_ObjectHideFlags: 0

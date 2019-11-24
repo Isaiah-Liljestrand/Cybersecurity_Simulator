@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 857260807752850958}
   - component: {fileID: 6402169523385066231}
   - component: {fileID: 6179358031999099090}
+  - component: {fileID: -2056912875478177791}
   m_Layer: 0
   m_Name: FoodQube
   m_TagString: Untagged
@@ -94,6 +95,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04, y: 0.03999999, z: 0.068294436}
   m_Center: {x: 0, y: 0, z: 0.034147218}
+--- !u!114 &-2056912875478177791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4676360728446293547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a6b7fedbc50974dbed4d4435a1eddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7820068134338422367
 GameObject:
   m_ObjectHideFlags: 0

@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 8519309936071693091}
   - component: {fileID: 1745846095701222108}
   - component: {fileID: 1671322543493083313}
+  - component: {fileID: 437722571055437532}
   m_Layer: 0
   m_Name: DeskL
   m_TagString: Untagged
@@ -450,3 +451,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03238202, y: 0.07740558, z: 0.023373155}
   m_Center: {x: 0.05104465, y: -0.021002607, z: 0.011580719}
+--- !u!114 &437722571055437532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928161853414336511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a6b7fedbc50974dbed4d4435a1eddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
