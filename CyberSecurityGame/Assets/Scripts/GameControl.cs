@@ -109,7 +109,7 @@ public class GameControl : MonoBehaviour
             CurrentConversationIndex = obj.GetComponent<EmployeeControl>().Index;
             if (obj.GetComponent<EmployeeControl>().CanInvestigate)
             {
-                Debug.Log("Opening dialog");
+                //Debug.Log("Opening dialog");
                 GetComponent<DialogueControl>().startDialogue(obj.GetComponent<EmployeeControl>().DiseaseCode);
             }
         }
