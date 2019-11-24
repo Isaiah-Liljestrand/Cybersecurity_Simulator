@@ -63,4 +63,36 @@ public class EmployeeControl : MonoBehaviour
             }
         }
     }
+
+    //Returns true if this computer resists the disease
+    public bool PassedResistanceCheck(DiseaseType Disease)
+    {
+        int Resistance = 0;
+        switch(Disease)
+        {
+            case DiseaseType.Clean:
+                break;
+            case DiseaseType.DOS:
+                break;
+            case DiseaseType.Password:
+                Resistance = ResistPassword;
+                break;
+            case DiseaseType.Phish:
+                Resistance = ResistPhish;
+                break;
+            case DiseaseType.Upload:
+                Resistance = ResistUpload;
+                break;
+        }
+        if (UnityEngine.Random.Range(0, 100) > Resistance)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void Infected(DiseaseType Disease, bool Mystery)
+    {
+
+    }
 }

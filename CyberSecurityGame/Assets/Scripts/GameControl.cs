@@ -19,12 +19,15 @@ public class GameControl : MonoBehaviour
 
     private float PassedDayTime;
 
+    private List<DiseaseType> AvailableDiseaseTypes;
+
     // Start is called before the first frame update
     void Start()
     {
         NC = GetComponent<NetworkControl>();
         NC.CreateLines(DeskObjects);
         ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
+        AvailableDiseaseTypes = new List<DiseaseType>() { DiseaseType.DOS, DiseaseType.Password, DiseaseType.Phish, DiseaseType.Upload };
     }
 
     // Update is called once per frame
@@ -91,21 +94,30 @@ public class GameControl : MonoBehaviour
 
     private void FirstInfect()
     {
-        //Choose a random employee and infect
-        List<GameObject> CleanEmployees = new List<GameObject>();
-        foreach(GameObject Employee in EmployeeObjs)
+        if (AvailableDiseaseTypes.Count > 0)
         {
-            if (Employee.GetComponent<EmployeeControl>().DiseaseCode == DiseaseType.Clean)
+            //Choose a random employee and infect
+            List<int> CleanEmployees = new List<int>();
+            int i = 0;
+            foreach (GameObject Employee in EmployeeObjs)
             {
-                CleanEmployees.Add(Employee);
+                if (Employee.GetComponent<EmployeeControl>().DiseaseCode == DiseaseType.Clean)
+                {
+                    CleanEmployees.Add(i);
+                }
+                i++;
             }
-        }
-        //Ignoring stats for now.
-        if (CleanEmployees.Count > 0)
-        {
-            int index = Random.Range(0, 15);
-            //Call visual things
+            //Ignoring stats for now.
+            if (CleanEmployees.Count > 0)
+            {
+                int index = Random.Range(0, 15);
+                //Call visual things
+                DiseaseType ChosenDisease = AvailableDiseaseTypes[Random.Range(0, AvailableDiseaseTypes.Count - 1)];
+                AvailableDiseaseTypes.Remove(ChosenDisease);
 
+                DeskObjects[CleanEmployees[index]].GetComponent<ComputerControl>().Infected(ChosenDisease, 30, true);
+                EmployeeObjs[CleanEmployees[index]].GetComponent<EmployeeControl>().Infected(ChosenDisease, false);
+            }
         }
     }
 }
