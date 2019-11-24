@@ -24,6 +24,7 @@ public class ComputerControl : MonoBehaviour
         this.AttackWait = AttackWait;
         this.Hidden = Hidden;
         PassedTime = 0;
+        Net.set_infection_status(gameObject, Disease);
     }
 
     private void Update()
@@ -46,22 +47,25 @@ public class ComputerControl : MonoBehaviour
         for (int i = 0; i < 16; i++)
         {
             if (Net.Connections[Index, i] == 1)
+            {
                 ConnectedIndices.Add(i);
+            }
         }
-        List<ComputerControl> CleanComps = new List<ComputerControl>();
+        List<int> CleanComps = new List<int>();
         foreach(int Index in ConnectedIndices)
         {
             ComputerControl OtherComp = Control.DeskObjects[Index].GetComponent<ComputerControl>();
             if (OtherComp.Disease == DiseaseType.Clean)
-                CleanComps.Add(OtherComp);
+                CleanComps.Add(Index);
         }
         if (CleanComps.Count > 0)
         {
             int RandomIndex = Random.Range(0, CleanComps.Count - 1);
-            EmployeeControl Employee = Control.EmployeeObjs[CleanComps[RandomIndex].Index].GetComponent<EmployeeControl>();
+            int ChosenIndex = CleanComps[RandomIndex];
+            EmployeeControl Employee = Control.EmployeeObjs[ChosenIndex].GetComponent<EmployeeControl>();
             if (!Employee.PassedResistanceCheck(Disease))
             {
-                CleanComps[RandomIndex].Infected(Disease, AttackWait, Hidden);
+                Control.DeskObjects[ChosenIndex].GetComponent<ComputerControl>().Infected(Disease, AttackWait, Hidden);
                 Employee.Infected(Disease, true);
             }
         }

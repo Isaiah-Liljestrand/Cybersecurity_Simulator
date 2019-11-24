@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a6b7fedbc50974dbed4d4435a1eddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
 --- !u!114 &2342285355430203137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04d60fccbb5eb2438de62a266b37e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Disease: 0
+  AttackWait: 0
+  Hidden: 0
+  Index: 0
 --- !u!1 &6062177109568970857
 GameObject:
   m_ObjectHideFlags: 0
