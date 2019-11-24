@@ -13,20 +13,20 @@ public class DialogueControl : MonoBehaviour
     public GameObject Text2;
     private GameControl control;
 
-    private List<string> Greeeting;
-    private List<string> PhishProblem;
-    private List<string> PhishInquiry;
-    private List<string> PhishResponse;
-    private List<string> UploadProblem;
-    private List<string> UploadInquiry;
-    private List<string> UploadResponse;
-    private List<string> Dos_idkProblem;
-    private List<string> Dos_idkInquiry;
-    private List<string> Dos_idkResponse;
-    private List<string> PasswdProblem;
-    private List<string> PasswdInquiry;
-    private List<string> PasswdResponse;
-    private List<string> Conclusion;
+    private List<string> Greeeting = new List<string>();
+    private List<string> PhishProblem = new List<string>();
+    private List<string> PhishInquiry = new List<string>();
+    private List<string> PhishResponse = new List<string>();
+    private List<string> UploadProblem = new List<string>();
+    private List<string> UploadInquiry = new List<string>();
+    private List<string> UploadResponse = new List<string>();
+    private List<string> Dos_idkProblem = new List<string>();
+    private List<string> Dos_idkInquiry = new List<string>();
+    private List<string> Dos_idkResponse = new List<string>();
+    private List<string> PasswdProblem = new List<string>();
+    private List<string> PasswdInquiry = new List<string>();
+    private List<string> PasswdResponse = new List<string>();
+    private List<string> Conclusion = new List<string>();
     private int state;
     private DiseaseType virus;
 
