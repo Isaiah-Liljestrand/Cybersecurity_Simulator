@@ -4681,10 +4681,15 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3610638848920208287, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 66724659489510901, guid: d8e36dda01a756d43a20f1b3d97a1c43,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 66724659489510901, guid: d8e36dda01a756d43a20f1b3d97a1c43,
         type: 3}
@@ -4694,7 +4699,7 @@ PrefabInstance:
     - target: {fileID: 66724659489510901, guid: d8e36dda01a756d43a20f1b3d97a1c43,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 66724659489510901, guid: d8e36dda01a756d43a20f1b3d97a1c43,
         type: 3}
@@ -4705,6 +4710,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 66724659489510901, guid: d8e36dda01a756d43a20f1b3d97a1c43,
+        type: 3}
+      propertyPath: m_text
+      value: '
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 4741340874336778680, guid: d8e36dda01a756d43a20f1b3d97a1c43,
         type: 3}
@@ -7340,6 +7352,7 @@ MonoBehaviour:
   ExclamationPrefab: {fileID: 6591892922039328207, guid: 2f8514e7433bbba4cb4220e06ccb0fc7,
     type: 3}
   EmployeeComputerWindow: {fileID: 739079627}
+  EducationScreen: {fileID: 0}
 --- !u!4 &1238019899
 Transform:
   m_ObjectHideFlags: 0
