@@ -37,6 +37,9 @@ public class EmployeeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResistPhish = UnityEngine.Random.Range(0, 100);
+        ResistPassword = UnityEngine.Random.Range(0, 100);
+        ResistUpload = UnityEngine.Random.Range(0, 100);
         DiseaseCode = DiseaseType.Clean;
         OnBreak = true;
         PassedTime = 0;
@@ -113,16 +116,41 @@ public class EmployeeControl : MonoBehaviour
         return true;
     }
 
-    public void Infected(DiseaseType Disease, bool Mystery, float waitTime, bool hidden)
+    public void Infected(DiseaseType Disease, bool Mystery, float minWait, float maxWait, bool hidden)
     {
         //Infect my computer
-        control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, waitTime, hidden);
+        control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, minWait, maxWait, hidden);
         DiseaseCode = Disease;
         this.Mystery = Mystery;
         CanInvestigate = true;
         control.reduceProductivity();
         ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
     }
+
+    public void Clean()
+    {
+        DiseaseCode = DiseaseType.Clean;
+        control.returnProductivity();
+        control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
+    }
+
+    public void Research()
+    {
+        List<EmployeeControl> infectedEmployees = new List<EmployeeControl>();
+        foreach(GameObject Employee in control.EmployeeObjs)
+        {
+            if(Employee.GetComponent<EmployeeControl>().DiseaseCode == this.DiseaseCode)
+            {
+                infectedEmployees.Add(Employee.GetComponent<EmployeeControl>());
+            }
+        }
+        foreach(EmployeeControl Employee in infectedEmployees)
+        {
+            Employee.Clean();
+        }
+    }
+
+
 
     public void SolveIssue()
     {

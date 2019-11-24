@@ -5,6 +5,8 @@ using UnityEngine;
 public class ComputerControl : MonoBehaviour
 {
     public DiseaseType Disease;
+    public float MinAttackWait;
+    public float MaxAttackWait;
     public float AttackWait;
     public bool Hidden;
     public int Index;
@@ -16,19 +18,29 @@ public class ComputerControl : MonoBehaviour
 
     private GameObject ExclamationMark;
 
+    private bool CanInvestigate;
+
     private void Start()
     {
         Control = GameObject.Find("Control").GetComponent<GameControl>();
         Net = GameObject.Find("Control").GetComponent<NetworkControl>();
     }
 
-    public void Infected(DiseaseType Disease, float AttackWait, bool Hidden)
+    public void Infected(DiseaseType Disease, float MinAttackWait, float MaxAttackWait, bool Hidden)
     {
         this.Disease = Disease;
-        this.AttackWait = AttackWait;
+        this.MinAttackWait = MinAttackWait;
+        this.MaxAttackWait = MaxAttackWait;
+        this.AttackWait = Random.Range(MinAttackWait, MaxAttackWait);
         this.Hidden = Hidden;
         PassedTime = 0;
         Net.set_infection_status(gameObject, Disease);
+    }
+
+    public void Clean()
+    {
+        Disease = DiseaseType.Clean;
+        Hidden = false;
     }
 
     private void Update()
@@ -40,6 +52,7 @@ public class ComputerControl : MonoBehaviour
                 PassedTime += Time.deltaTime;
                 if (PassedTime > AttackWait)
                 {
+                    AttackWait = Random.Range(MinAttackWait, MaxAttackWait);
                     Attack();
                     PassedTime = 0;
                 }
@@ -82,8 +95,8 @@ public class ComputerControl : MonoBehaviour
             EmployeeControl Employee = Control.EmployeeObjs[ChosenIndex].GetComponent<EmployeeControl>();
             if (!Employee.PassedResistanceCheck(Disease))
             {
-                Control.DeskObjects[ChosenIndex].GetComponent<ComputerControl>().Infected(Disease, AttackWait, Hidden);
-                Employee.Infected(Disease, true, AttackWait, Hidden);
+                Control.DeskObjects[ChosenIndex].GetComponent<ComputerControl>().Infected(Disease, MinAttackWait, MaxAttackWait, Hidden);
+                Employee.Infected(Disease, true, MinAttackWait, MaxAttackWait, Hidden);
             }
         }
     }
@@ -91,11 +104,14 @@ public class ComputerControl : MonoBehaviour
     public void CreateIssue()
     {
         ExclamationMark = Instantiate(Control.ExclamationPrefab, this.transform);
+        Hidden = false;
+        CanInvestigate = true;
     }
 
     public void SolveIssue()
     {
         Destroy(ExclamationMark);
         ExclamationMark = null;
+        CanInvestigate = false;
     }
 }

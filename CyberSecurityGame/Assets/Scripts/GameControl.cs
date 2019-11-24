@@ -21,6 +21,8 @@ public class GameControl : MonoBehaviour
     public int ProductivityNum;
 
 
+    public float MinInitialInfectWait;
+    public float MaxInitialInfectWait;
     public float MinInfectWait;
     public float MaxInfectWait;
     private float ChosenInfectWait;
@@ -35,6 +37,8 @@ public class GameControl : MonoBehaviour
     public GameObject ExclamationPrefab; //This is just a reference which will be instantiated in ComputerControl and EmployeeControl
 
     private bool Paused;
+
+    private int CurrentConversationIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +64,7 @@ public class GameControl : MonoBehaviour
             if (PassedInfectTime > ChosenInfectWait)
             {
                 FirstInfect();
-                ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
+                ChosenInfectWait = Random.Range(MinInitialInfectWait, MaxInitialInfectWait);
                 PassedInfectTime = 0;
             }
             if (PassedDayTime > 30)
@@ -101,6 +105,13 @@ public class GameControl : MonoBehaviour
         if (Vector3.Distance(PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
             //Bring up UI stuff
+            Pause();
+            CurrentConversationIndex = obj.GetComponent<EmployeeControl>().Index;
+            if (obj.GetComponent<EmployeeControl>().CanInvestigate)
+            {
+                //Debug.Log("Opening dialog");
+                GetComponent<DialogueControl>().startDialogue(obj.GetComponent<EmployeeControl>().DiseaseCode);
+            }
         }
         else
         {
@@ -182,8 +193,15 @@ public class GameControl : MonoBehaviour
                 //Call visual things
                 DiseaseType ChosenDisease = AvailableDiseaseTypes[Random.Range(0, AvailableDiseaseTypes.Count - 1)];
                 AvailableDiseaseTypes.Remove(ChosenDisease);
-                float wait = 5;
-                CleanEmployees[index].Infected(ChosenDisease, false, wait, true);
+                float min = Random.Range(MinInfectWait, MaxInfectWait);
+                float max = Random.Range(MinInfectWait, MaxInfectWait);
+                if(min > max)
+                {
+                    float tmp = min;
+                    min = max;
+                    max = tmp;
+                }
+                CleanEmployees[index].Infected(ChosenDisease, false, min, max, true);
             }
         }
     }
@@ -214,10 +232,22 @@ public class GameControl : MonoBehaviour
         }
     }
 
+    public void ConversationEnded()
+    {
+        Resume();
+        EmployeeObjs[CurrentConversationIndex].GetComponent<EmployeeControl>().SolveIssue();
+        DeskObjects[CurrentConversationIndex].GetComponent<ComputerControl>().CreateIssue();
+    }
+
     public void reduceProductivity()
     {
         ProductivityNum -= 20;
-        //todo
+        Productivity.GetComponent<TextMeshProUGUI>().text = "$" + ProductivityNum + "/hr";
+    }
+
+    public void returnProductivity()
+    {
+        ProductivityNum += 20;
         Productivity.GetComponent<TextMeshProUGUI>().text = "$" + ProductivityNum + "/hr";
     }
 
@@ -227,5 +257,10 @@ public class GameControl : MonoBehaviour
         Money.GetComponent<TextMeshProUGUI>().text = "$" + Dollars;
         string[] Times = new string[] { "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"};
         timeOfDay.GetComponent<TextMeshProUGUI>().text = Times[HourStep];
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
