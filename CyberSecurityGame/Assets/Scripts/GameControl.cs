@@ -21,8 +21,6 @@ public class GameControl : MonoBehaviour
     public int ProductivityNum;
 
 
-    public float MinInitialInfectWait;
-    public float MaxInitialInfectWait;
     public float MinInfectWait;
     public float MaxInfectWait;
     private float ChosenInfectWait;
@@ -64,7 +62,7 @@ public class GameControl : MonoBehaviour
             if (PassedInfectTime > ChosenInfectWait)
             {
                 FirstInfect();
-                ChosenInfectWait = Random.Range(MinInitialInfectWait, MaxInitialInfectWait);
+                ChosenInfectWait = Random.Range(MinInfectWait, MaxInfectWait);
                 PassedInfectTime = 0;
             }
             if (PassedDayTime > 30)
@@ -190,15 +188,8 @@ public class GameControl : MonoBehaviour
                 //Call visual things
                 DiseaseType ChosenDisease = AvailableDiseaseTypes[Random.Range(0, AvailableDiseaseTypes.Count - 1)];
                 AvailableDiseaseTypes.Remove(ChosenDisease);
-                float min = Random.Range(MinInfectWait, MaxInfectWait);
-                float max = Random.Range(MinInfectWait, MaxInfectWait);
-                if(min > max)
-                {
-                    float tmp = min;
-                    min = max;
-                    max = tmp;
-                }
-                CleanEmployees[index].Infected(ChosenDisease, false, min, max, true);
+                float wait = 5;
+                CleanEmployees[index].Infected(ChosenDisease, false, wait, true);
             }
         }
     }
@@ -253,10 +244,5 @@ public class GameControl : MonoBehaviour
         Money.GetComponent<TextMeshProUGUI>().text = "$" + Dollars;
         string[] Times = new string[] { "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"};
         timeOfDay.GetComponent<TextMeshProUGUI>().text = Times[HourStep];
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
     }
 }

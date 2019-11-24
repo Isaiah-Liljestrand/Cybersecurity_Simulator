@@ -5,8 +5,6 @@ using UnityEngine;
 public class ComputerControl : MonoBehaviour
 {
     public DiseaseType Disease;
-    public float MinAttackWait;
-    public float MaxAttackWait;
     public float AttackWait;
     public bool Hidden;
     public int Index;
@@ -24,12 +22,10 @@ public class ComputerControl : MonoBehaviour
         Net = GameObject.Find("Control").GetComponent<NetworkControl>();
     }
 
-    public void Infected(DiseaseType Disease, float MinAttackWait, float MaxAttackWait, bool Hidden)
+    public void Infected(DiseaseType Disease, float AttackWait, bool Hidden)
     {
         this.Disease = Disease;
-        this.MinAttackWait = MinAttackWait;
-        this.MaxAttackWait = MaxAttackWait;
-        this.AttackWait = Random.Range(MinAttackWait, MaxAttackWait);
+        this.AttackWait = AttackWait;
         this.Hidden = Hidden;
         PassedTime = 0;
         Net.set_infection_status(gameObject, Disease);
@@ -50,7 +46,6 @@ public class ComputerControl : MonoBehaviour
                 PassedTime += Time.deltaTime;
                 if (PassedTime > AttackWait)
                 {
-                    AttackWait = Random.Range(MinAttackWait, MaxAttackWait);
                     Attack();
                     PassedTime = 0;
                 }
@@ -93,8 +88,8 @@ public class ComputerControl : MonoBehaviour
             EmployeeControl Employee = Control.EmployeeObjs[ChosenIndex].GetComponent<EmployeeControl>();
             if (!Employee.PassedResistanceCheck(Disease))
             {
-                Control.DeskObjects[ChosenIndex].GetComponent<ComputerControl>().Infected(Disease, MinAttackWait, MaxAttackWait, Hidden);
-                Employee.Infected(Disease, true, MinAttackWait, MaxAttackWait, Hidden);
+                Control.DeskObjects[ChosenIndex].GetComponent<ComputerControl>().Infected(Disease, AttackWait, Hidden);
+                Employee.Infected(Disease, true, AttackWait, Hidden);
             }
         }
     }
