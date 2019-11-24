@@ -143,14 +143,14 @@ public class EmployeeControl : MonoBehaviour
         DiseaseCode = Disease;
         this.Mystery = Mystery;
         CanInvestigate = true;
-        control.reduceProductivity();
+        control.reduceProductivity(20);
         ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
     }
 
     public void Clean()
     {
         DiseaseCode = DiseaseType.Clean;
-        control.returnProductivity();
+        control.returnProductivity(20);
         Cleaning = true;
         //control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
     }
