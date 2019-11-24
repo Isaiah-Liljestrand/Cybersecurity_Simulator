@@ -7440,7 +7440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc66578f8539ec141a5b159b3bc9d81c, type: 2}
+  - {fileID: 2100000, guid: 73c286f03d23f2e4eabfa0440e40a168, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7475,13 +7475,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701064038}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 46.9}
-  m_LocalScale: {x: 50, y: 1, z: 60}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 19, y: -1, z: 64.9}
+  m_LocalScale: {x: 30.460548, y: 30.460548, z: 30.460548}
   m_Children: []
   m_Father: {fileID: 537261753}
   m_RootOrder: 28
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &1706474413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 19f84bbfe8ec33f4f80b35f76c955424,
@@ -8098,7 +8098,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 9c0fa0cc735f3ee47aca8a4e024c0592, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
