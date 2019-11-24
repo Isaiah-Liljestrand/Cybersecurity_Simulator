@@ -66,7 +66,7 @@ public class ComputerControl : MonoBehaviour
             if (!Employee.PassedResistanceCheck(Disease))
             {
                 Control.DeskObjects[ChosenIndex].GetComponent<ComputerControl>().Infected(Disease, AttackWait, Hidden);
-                Employee.Infected(Disease, true);
+                Employee.Infected(Disease, true, AttackWait, Hidden);
             }
         }
     }

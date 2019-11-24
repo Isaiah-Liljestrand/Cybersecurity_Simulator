@@ -137,15 +137,13 @@ public class GameControl : MonoBehaviour
         if (AvailableDiseaseTypes.Count > 0)
         {
             //Choose a random employee and infect
-            List<int> CleanEmployees = new List<int>();
-            int i = 0;
+            List<EmployeeControl> CleanEmployees = new List<EmployeeControl>();
             foreach (GameObject Employee in EmployeeObjs)
             {
                 if (Employee.GetComponent<EmployeeControl>().DiseaseCode == DiseaseType.Clean)
                 {
-                    CleanEmployees.Add(i);
+                    CleanEmployees.Add(Employee.GetComponent<EmployeeControl>());
                 }
-                i++;
             }
             //Ignoring stats for now.
             if (CleanEmployees.Count > 0)
@@ -155,9 +153,8 @@ public class GameControl : MonoBehaviour
                 //Call visual things
                 DiseaseType ChosenDisease = AvailableDiseaseTypes[Random.Range(0, AvailableDiseaseTypes.Count - 1)];
                 AvailableDiseaseTypes.Remove(ChosenDisease);
-
-                DeskObjects[CleanEmployees[index]].GetComponent<ComputerControl>().Infected(ChosenDisease, 5, true);
-                EmployeeObjs[CleanEmployees[index]].GetComponent<EmployeeControl>().Infected(ChosenDisease, false);
+                float wait = 5;
+                CleanEmployees[index].Infected(ChosenDisease, false, wait, true);
             }
         }
     }

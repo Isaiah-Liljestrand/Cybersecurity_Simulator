@@ -6,6 +6,7 @@ using UnityEngine;
 public class EmployeeControl : MonoBehaviour
 {
     public String Name;
+    public int Index;
     public int ResistPhish;
     public int ResistPassword;
     public int ResistUpload;
@@ -92,8 +93,10 @@ public class EmployeeControl : MonoBehaviour
         return true;
     }
 
-    public void Infected(DiseaseType Disease, bool Mystery)
+    public void Infected(DiseaseType Disease, bool Mystery, float waitTime, bool hidden)
     {
+        //Infect my computer
+        control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, waitTime, hidden);
         DiseaseCode = Disease;
         this.Mystery = Mystery;
     }
