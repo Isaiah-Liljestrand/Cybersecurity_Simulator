@@ -7346,8 +7346,8 @@ MonoBehaviour:
   ProductivityNum: 100
   MinInitialInfectWait: 20
   MaxInitialInfectWait: 30
-  MinInfectWait: 20
-  MaxInfectWait: 30
+  MinInfectWait: 10
+  MaxInfectWait: 20
   ActivationDistance: 6
   ExclamationPrefab: {fileID: 6591892922039328207, guid: 2f8514e7433bbba4cb4220e06ccb0fc7,
     type: 3}
