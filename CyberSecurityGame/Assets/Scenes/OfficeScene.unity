@@ -6372,7 +6372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493187e3a70933d40810a70750abbd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pan: 325
+  pan: 323
   minsize: 6.8
   maxsize: 60
   zoomspeed: 10
@@ -7446,6 +7446,7 @@ MonoBehaviour:
     type: 3}
   EmployeeComputerWindow: {fileID: 739079627}
   EducationScreen: {fileID: 0}
+  taptime: 0.2
 --- !u!4 &1238019899
 Transform:
   m_ObjectHideFlags: 0
@@ -12434,11 +12435,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8907308184587426967, guid: 1711b728a13485045aabba27afe3d3f0,
-        type: 3}
-      propertyPath: m_Speed
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1711b728a13485045aabba27afe3d3f0, type: 3}

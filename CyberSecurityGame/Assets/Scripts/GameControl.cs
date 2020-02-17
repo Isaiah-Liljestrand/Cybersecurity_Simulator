@@ -44,6 +44,10 @@ public class GameControl : MonoBehaviour
 
     public GameObject EducationScreen;
 
+    private bool holdingclicked = false;
+    private float holdingtime;
+    public float taptime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +65,19 @@ public class GameControl : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Clicked();
+                holdingclicked = true;
+                holdingtime = 0;
+                //Clicked();
+            }
+            if (holdingclicked)
+            {
+                holdingtime += Time.deltaTime;
+                if (Input.GetMouseButtonUp(0))
+                {
+                    holdingclicked = false;
+                    if (holdingtime <= taptime)
+                        Clicked();
+                }
             }
             PassedDayTime += Time.deltaTime;
             PassedInfectTime += Time.deltaTime;
