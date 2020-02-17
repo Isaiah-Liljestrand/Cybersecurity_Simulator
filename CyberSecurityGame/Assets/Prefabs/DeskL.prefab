@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3858472941440172747}
   m_LocalRotation: {x: 0.00000008940697, y: 0.0000000037252903, z: -0.078459024, w: 0.99691737}
-  m_LocalPosition: {x: 0.021700002, y: -0.0064999983, z: 0.024899997}
+  m_LocalPosition: {x: 0.021700002, y: -0.0056, z: 0.0249}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6367286043078989292}
@@ -478,6 +478,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Disease: 0
+  MinAttackWait: 0
+  MaxAttackWait: 0
   AttackWait: 0
   Hidden: 0
   Index: 0
+  CanInvestigate: 0
