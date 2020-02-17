@@ -40,6 +40,11 @@ public class EmployeeControl : MonoBehaviour
     public bool Cleaning;
     private bool Researching;
 
+    public GameObject speechbubble;
+    public float speechbubblechance;
+    public float speechbubblelifespan;
+    private float speechbubbletime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +63,23 @@ public class EmployeeControl : MonoBehaviour
     {
         if (!Paused)
         {
+            if (speechbubble.activeSelf)
+            {
+                speechbubbletime += Time.deltaTime;
+                if (speechbubbletime > speechbubblelifespan)
+                {
+                    speechbubble.SetActive(false);
+                }
+            }
+            else
+            {
+                if (UnityEngine.Random.Range(0f, 1f) < speechbubblechance && OnBreak && !CanInvestigate)
+                {
+                    speechbubbletime = 0;
+                    speechbubble.SetActive(true);
+                    speechbubble.GetComponentInChildren<RandomGlyph>().RandomChar();
+                }
+            }
             if (!OnBreak && !CanInvestigate)
             {
                 PassedTime += Time.deltaTime;
