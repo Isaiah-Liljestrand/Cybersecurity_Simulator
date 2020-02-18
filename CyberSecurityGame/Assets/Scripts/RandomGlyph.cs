@@ -18,6 +18,7 @@ public class RandomGlyph : MonoBehaviour
 
     public void RandomChar()
     {
-        text.text = "" + (char)(minchar + Random.Range(0, maxchar - minchar));
+        if (text)
+            text.text = "" + (char)(minchar + Random.Range(0, maxchar - minchar));
     }
 }

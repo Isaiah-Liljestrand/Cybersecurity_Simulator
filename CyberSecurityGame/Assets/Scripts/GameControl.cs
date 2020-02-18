@@ -234,7 +234,7 @@ public class GameControl : MonoBehaviour
             if (CleanEmployees.Count > 0)
             {
                 int index = Random.Range(0, CleanEmployees.Count - 1);
-                Debug.Log("Infecting " + index);
+                //Debug.Log("Infecting " + index);
                 //Call visual things
                 DiseaseType ChosenDisease = AvailableDiseaseTypes[Random.Range(0, AvailableDiseaseTypes.Count - 1)];
                 AvailableDiseaseTypes.Remove(ChosenDisease);
