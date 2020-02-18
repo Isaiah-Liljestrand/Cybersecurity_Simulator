@@ -58,7 +58,6 @@ public class TimeLineUIScript : MonoBehaviour
                 spawned[0].GetComponent<FillTimeLineEventUI>().Fade();
                 spawned.RemoveAt(0);
             }
-            Debug.Log(spawned.Count - maxcount);
             for (int i = 0; i < (spawned.Count - maxcount) + 1; i++)
             {
                 if (i < spawned.Count)
