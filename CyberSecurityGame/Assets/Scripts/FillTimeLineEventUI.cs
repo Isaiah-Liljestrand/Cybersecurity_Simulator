@@ -12,10 +12,14 @@ public class FillTimeLineEventUI : MonoBehaviour
     private bool fadingin;
     private bool fadingout;
 
+    public Vector3 moveto;
+    public float movespeed;
+
     // Start is called before the first frame update
     void Start()
     {
-        anm = GetComponentInChildren<Animator>();
+        if (GetComponentInChildren<Animator>())
+            anm = GetComponentInChildren<Animator>();
         donefilling = false;
         fadingin = true;
         fadingout = false;
@@ -25,7 +29,8 @@ public class FillTimeLineEventUI : MonoBehaviour
 
     public void Fill()
     {
-        anm.SetTrigger("fill");
+        if (anm)
+            anm.SetTrigger("fill");
     }
 
     public void Fade()
@@ -36,13 +41,13 @@ public class FillTimeLineEventUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKey(KeyCode.O))
-            Fill();
-        if (Input.GetKey(KeyCode.F))
-            Fade();*/
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, moveto, movespeed * Time.deltaTime);
 
-        if (anm.GetCurrentAnimatorStateInfo(0).IsName("UIFill_filled"))
-            donefilling = true;
+        if (anm)
+        {
+            if (anm.GetCurrentAnimatorStateInfo(0).IsName("UIFill_filled"))
+                donefilling = true;
+        }
 
         if (fadingout || fadingin)
         {
