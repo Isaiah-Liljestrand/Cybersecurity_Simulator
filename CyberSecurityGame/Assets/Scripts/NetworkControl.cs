@@ -143,14 +143,14 @@ public class NetworkControl : MonoBehaviour
     }
 
 
-    public void big_tiddie() {
+    public void set_all_node() {
 
-        foreach (Disease shit_memes in GetComponent<DiseaseControl>().diseases) {
+        foreach (Disease disease_type in GetComponent<DiseaseControl>().diseases) {
 
 
-            foreach (int big_sip in shit_memes.GetInfected()) {
+            foreach (int node in disease_type.GetInfected()) {
 
-                set_node_color(big_sip, shit_memes.color);
+                set_node_color(node, disease_type.color);
             }
 
 
