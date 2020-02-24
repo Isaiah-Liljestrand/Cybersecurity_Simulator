@@ -142,29 +142,40 @@ public class NetworkControl : MonoBehaviour
         LineObject.SetActive(false);
     }
 
-    public void set_node_color(GameObject node, Color color) {
 
-        int i;
-        int name_index;
+    public void big_tiddie() {
 
-        
-            int.TryParse(node.gameObject.name.Substring(4),out name_index);
+        foreach (Disease shit_memes in GetComponent<DiseaseControl>().diseases) {
+
+
+            foreach (int big_sip in shit_memes.GetInfected()) {
+
+                set_node_color(big_sip, shit_memes.color);
+            }
+
+
+        }
+
+
+    }
+
+    public void set_node_color(int node, Color color) {
             
             
-            for (i = 0;i <= 15; i++) {
+            for (int i = 0;i <= 15; i++) {
 
-                if (lines[name_index,i] != null) {
+                if (lines[node,i] != null) {
 
-                    lines[name_index,i].startColor = color;
-                    lines[name_index, i].endColor = color;
+                    lines[node,i].startColor = color;
+                    lines[node, i].endColor = color;
 
 
                 }
 
             }
-            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = color;
+            GetComponent<GameControl>().employees[node].desk.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = color;
 
-        
+
     }
 
 
