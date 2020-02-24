@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClickedObject : MonoBehaviour
 {
-    private GameControl control;
+    private ClickManager control;
     private GameObject standlocation;
     public ObjectType type;
 
@@ -14,7 +14,7 @@ public class ClickedObject : MonoBehaviour
             standlocation = transform.Find("StandingLocation").gameObject;
         else
             standlocation = gameObject;
-        control = GameObject.Find("Control").GetComponent<GameControl>();
+        control = GameObject.Find("Control").GetComponent<ClickManager>();
     }
 
     private void OnMouseDown()
