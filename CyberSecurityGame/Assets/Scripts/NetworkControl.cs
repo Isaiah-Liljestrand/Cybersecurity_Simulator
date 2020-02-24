@@ -8,8 +8,10 @@ using UnityEngine;
 public class NetworkControl : MonoBehaviour
 {
     public Material LineMaterial;
-    
-    
+    public GameObject NetworkShadow;
+
+
+
     public int[,] Connections = new int[16, 16]
     {//   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
         { 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //0
@@ -41,6 +43,26 @@ public class NetworkControl : MonoBehaviour
     public void HideLines()
     {
         LineObject.SetActive(false);
+    }
+
+    public void ShowNetwork()
+    {
+        NetworkShadow.SetActive(true);
+        ShowLines();
+        foreach (EmployeeDeskPair obj in GetComponent<GameControl>().employees)
+        {
+            obj.desk.transform.Find("NetworkNode").gameObject.SetActive(true);
+        }
+    }
+
+    public void HideNetwork()
+    {
+        NetworkShadow.SetActive(false);
+        HideLines();
+        foreach (EmployeeDeskPair obj in GetComponent<GameControl>().employees)
+        {
+            obj.desk.transform.Find("NetworkNode").gameObject.SetActive(true);
+        }
     }
 
     public void CreateLines(List<GameObject> DeskObjects)

@@ -8,6 +8,8 @@ public class GameControl : MonoBehaviour
     public GameObject PlayerObj;
     public List<EmployeeDeskPair> employees;
     public List<GameObject> BreakObjects;
+    
+
 
     private bool Paused;
     private NetworkControl NC;
