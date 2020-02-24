@@ -34,8 +34,6 @@ public class LineClickScript : MonoBehaviour
             parent_line.GetComponent<LineRenderer>().endColor = Color.white;
             net.Connections[x, y] = 1;
             net.Connections[y, x] = 1;
-
-            gam.returnProductivity(10);
         }
         else {
 
@@ -44,8 +42,6 @@ public class LineClickScript : MonoBehaviour
             parent_line.GetComponent<LineRenderer>().endColor = Color.cyan;
             net.Connections[x, y] = 2;
             net.Connections[y, x] = 2;
-            gam.reduceProductivity(10);
-
         }       
 
 

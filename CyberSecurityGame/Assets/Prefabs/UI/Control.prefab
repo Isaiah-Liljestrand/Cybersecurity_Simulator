@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3521642493660214998}
   - component: {fileID: 3521642493660214999}
   - component: {fileID: 799219536004951}
+  - component: {fileID: 6886608145446769908}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -47,42 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerObj: {fileID: 0}
-  EmployeeObjs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  DeskObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  TargetObj: {fileID: 0}
-  NetworkShadow: {fileID: 0}
+  employees: []
   BreakObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -90,20 +56,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  timeOfDay: {fileID: 0}
-  Money: {fileID: 0}
-  Productivity: {fileID: 0}
-  ProductivityNum: 100
-  MinInitialInfectWait: 20
-  MaxInitialInfectWait: 30
-  MinInfectWait: 10
-  MaxInfectWait: 20
-  ActivationDistance: 6
   ExclamationPrefab: {fileID: 6591892922039328207, guid: 2f8514e7433bbba4cb4220e06ccb0fc7,
     type: 3}
-  EmployeeComputerWindow: {fileID: 0}
-  EducationScreen: {fileID: 0}
-  taptime: 0.2
 --- !u!114 &3521642493660214998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,5 +98,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fc469a51c531194aa291e712a9d7f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timelineui: {fileID: 0}
+--- !u!114 &6886608145446769908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521642493660214995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4a1b4350417e64db30dc66f75bbc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

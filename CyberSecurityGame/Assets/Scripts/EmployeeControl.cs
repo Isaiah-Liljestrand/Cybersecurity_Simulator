@@ -102,20 +102,6 @@ public class EmployeeControl : MonoBehaviour
                     nav.GoToObject(Office.transform.Find("StandingLocation").gameObject, 3);
                 }
             }
-            if (Cleaning || Researching)
-                PassedCRTime += Time.deltaTime;
-            if (Cleaning && PassedCRTime > CleanTime)
-            {
-                PassedCRTime = 0;
-                control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
-                Cleaning = false;
-            }
-            if (Researching && PassedCRTime > ResearchTime)
-            {
-                PassedCRTime = 0;
-                FinishResearch();
-                Researching = false;
-            }
         }
     }
 
@@ -156,46 +142,6 @@ public class EmployeeControl : MonoBehaviour
             return false;
         }
         return true;
-    }
-
-    public void Infected(DiseaseType Disease, bool Mystery, float minWait, float maxWait, bool hidden)
-    {
-        //Infect my computer
-        control.DeskObjects[Index].GetComponent<ComputerControl>().Infected(Disease, minWait, maxWait, hidden);
-        DiseaseCode = Disease;
-        this.Mystery = Mystery;
-        CanInvestigate = true;
-        control.reduceProductivity(20);
-        ExclamationMark = Instantiate(control.ExclamationPrefab, this.transform);
-    }
-
-    public void Clean()
-    {
-        DiseaseCode = DiseaseType.Clean;
-        control.returnProductivity(20);
-        Cleaning = true;
-        //control.DeskObjects[Index].GetComponent<ComputerControl>().Clean();
-    }
-
-    public void Research()
-    {
-        Researching = true;
-    }
-
-    private void FinishResearch()
-    {
-        List<EmployeeControl> infectedEmployees = new List<EmployeeControl>();
-        foreach (GameObject Employee in control.EmployeeObjs)
-        {
-            if (Employee.GetComponent<EmployeeControl>().DiseaseCode == this.DiseaseCode)
-            {
-                infectedEmployees.Add(Employee.GetComponent<EmployeeControl>());
-            }
-        }
-        foreach (EmployeeControl Employee in infectedEmployees)
-        {
-            Employee.Clean();
-        }
     }
 
     public void SolveIssue()
