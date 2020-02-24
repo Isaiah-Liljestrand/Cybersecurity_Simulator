@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DiseaseControl : MonoBehaviour
 {
+    List<Disease> diseases = new List<Disease>();
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,10 @@ public class DiseaseControl : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void cleanVirus(Disease disease)
+    {
+
     }
 }

@@ -7,6 +7,7 @@ public class ComputerControl : MonoBehaviour
     public int Index;
     public GameObject ExclamationMark_prefab;
     private GameObject ExclamationMark;
+    private bool isfixed;
 
     public bool CanInvestigate;
 
@@ -22,4 +23,6 @@ public class ComputerControl : MonoBehaviour
         ExclamationMark = null;
         CanInvestigate = false;
     }
+
+    public void 
 }
