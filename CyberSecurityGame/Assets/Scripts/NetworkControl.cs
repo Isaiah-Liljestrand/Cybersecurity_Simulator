@@ -43,11 +43,13 @@ public class NetworkControl : MonoBehaviour
     public void HideLines()
     {
         LineObject.SetActive(false);
+        set_all_nodes();
     }
 
     public void ShowNetwork()
     {
         NetworkShadow.SetActive(true);
+        set_all_nodes();
         ShowLines();
         foreach (EmployeeDeskPair obj in GetComponent<GameControl>().employees)
         {
@@ -143,7 +145,7 @@ public class NetworkControl : MonoBehaviour
     }
 
 
-    public void set_all_node() {
+    public void set_all_nodes() {
 
         foreach (Disease disease_type in GetComponent<DiseaseControl>().diseases) {
 
