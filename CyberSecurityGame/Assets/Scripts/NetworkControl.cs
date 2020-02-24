@@ -142,12 +142,12 @@ public class NetworkControl : MonoBehaviour
         LineObject.SetActive(false);
     }
 
-    public void set_infection_status(GameObject node, DiseaseType status_code) {
+    public void set_node_color(GameObject node, Color color) {
 
         int i;
         int name_index;
 
-        if (status_code == DiseaseType.Clean) { // cure it
+        
             int.TryParse(node.gameObject.name.Substring(4),out name_index);
             
             
@@ -155,107 +155,16 @@ public class NetworkControl : MonoBehaviour
 
                 if (lines[name_index,i] != null) {
 
-                    lines[name_index,i].startColor = Color.white;
-                    lines[name_index, i].endColor = Color.white;
+                    lines[name_index,i].startColor = color;
+                    lines[name_index, i].endColor = color;
 
 
                 }
 
             }
-            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.white;
+            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = color;
 
-        } else if (status_code == DiseaseType.Password){ // infection type 1
-
-            int.TryParse(node.gameObject.name.Substring(4), out name_index);
-
-
-            for (i = 0; i <= 15; i++)
-            {
-
-                if (lines[name_index, i] != null)
-                {
-                    if (lines[name_index, i].startColor != Color.cyan && lines[name_index, i].endColor != Color.cyan)
-                     {
-
-                        lines[name_index, i].startColor = Color.red;
-                        lines[name_index, i].endColor = Color.red;
-                    }
-
-                }
-
-            }
-
-            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.red;
-        }
-        else if (status_code == DiseaseType.Phish){ // infection type 2
-
-            int.TryParse(node.gameObject.name.Substring(4), out name_index);
-
-
-            for (i = 0; i <= 15; i++)
-            {
-
-                if (lines[name_index, i] != null)
-                {
-                    if (lines[name_index, i].startColor != Color.cyan && lines[name_index, i].endColor != Color.cyan)
-                    {
-
-                        lines[name_index, i].startColor = Color.yellow;
-                        lines[name_index, i].endColor = Color.yellow;
-                    }
-
-                }
-
-            }
-            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        else if (status_code == DiseaseType.Upload){// infection type 3
-            int.TryParse(node.gameObject.name.Substring(4), out name_index);
-            
-
-            for (i = 0; i <= 15; i++)
-            {
-
-                if (lines[name_index, i] != null)
-                {
-                    if (lines[name_index, i].startColor != Color.cyan && lines[name_index, i].endColor != Color.cyan)
-                    {
-                        lines[name_index, i].startColor = Color.green;
-                        lines[name_index, i].endColor = Color.green;
-                    }
-
-                }
-
-            }
-
-            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.green;
-
-
-
-
-        }
-        else if (status_code == DiseaseType.DOS)// DDOS
-        {
-            int.TryParse(node.gameObject.name.Substring(4), out name_index);
-
-
-            for (i = 0; i <= 15; i++)
-            {
-
-                if (lines[name_index, i] != null)
-                {
-
-                    lines[name_index, i].startColor = Color.grey;
-                    lines[name_index, i].endColor = Color.grey;
-
-
-                }
-
-            }
-
-            node.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = Color.gray;
-        }
-
+        
     }
 
 
