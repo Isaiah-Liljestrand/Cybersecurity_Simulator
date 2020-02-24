@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ComputerControl : MonoBehaviour
 {
+
     public int Index;
     public GameObject ExclamationMark_prefab;
+    public Disease disease;
+
     private GameObject ExclamationMark;
-    private bool isfixed;
+    //private bool isfixed;
 
     public bool CanInvestigate;
 
@@ -24,5 +27,15 @@ public class ComputerControl : MonoBehaviour
         CanInvestigate = false;
     }
 
-    public void 
+    public void FixComputer()
+    {
+        //open ui
+        //
+    }
+
+
+    public void FixedResult(bool isfixed)
+    {
+        GameObject.Find("Control").GetComponent<GameControl>().ComputerFix(isfixed, disease);
+    }
 }
