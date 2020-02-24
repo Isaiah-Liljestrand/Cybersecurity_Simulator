@@ -8,8 +8,6 @@ public class TimeLineControl : MonoBehaviour
     public TimeLineUIScript timelineui;
     private int maxcount;
 
-    private List<TimeLineEventType> upcomingevents;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +24,11 @@ public class TimeLineControl : MonoBehaviour
 
     public void Turnpassed()
     {
-        AddEvents(maxcount);
-        timelineui.AddEvent
+        List<TimeLineEventType> newevents = AddEvents(maxcount);
+        foreach(TimeLineEventType tevent in newevents)
+        {
+            timelineui.AddEvent(tevent);
+        }
     }
 
     public void DiseaseSolved(Disease disease)
@@ -35,14 +36,16 @@ public class TimeLineControl : MonoBehaviour
 
     }
 
-    private void AddEvents(int lookahead)
+    private List<TimeLineEventType> AddEvents(int lookahead)
     {
-        upcomingevents.Add(TimeLineEventType.nothing); //Add turns
+        List<TimeLineEventType> newevents = new List<TimeLineEventType>();
+        newevents.Add(TimeLineEventType.nothing); //Add turns
         //Add disease spreads after turn passes.
         foreach (Disease disease in diseases)
         {
             if ((disease.currentturn + lookahead) % disease.turnsbeforespread == 0) //This dease will spread
-                upcomingevents.Add(TimeLineEventType.unknownvirus);
+                newevents.Add(TimeLineEventType.unknownvirus);
         }
+        return newevents;
     }
 }
