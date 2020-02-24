@@ -26,6 +26,6 @@ public class DiseaseControl : MonoBehaviour
 
     public void CleanVirus(Disease disease)
     {
-
+        Debug.Log("NIGGA");
     }
 }
