@@ -47,7 +47,7 @@ public class GameControl : MonoBehaviour
     public void ComputerFix(bool isfixed, Disease disease)
     {
         if (isfixed)
-            DC.cleanVirus(disease);
+            DC.CleanVirus(disease);
         else
             PassTurn(1);
     }
