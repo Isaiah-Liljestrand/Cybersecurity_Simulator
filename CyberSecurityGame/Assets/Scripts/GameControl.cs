@@ -11,12 +11,17 @@ public class GameControl : MonoBehaviour
 
     private bool Paused;
     private NetworkControl NC;
+    private DiseaseControl DC;
+    private TimeLineControl TC;
 
     private int turns;
 
     // Start is called before the first frame update
     void Start()
     {
+        NC = GetComponent<NetworkControl>();
+        DC = GetComponent<DiseaseControl>();
+        TC = GetComponent<TimeLineControl>();
         turns = 0;
     }
 
@@ -36,6 +41,15 @@ public class GameControl : MonoBehaviour
     {
         
     }
+
+    public void ComputerFix(bool isfixed, Disease disease)
+    {
+        if (isfixed)
+            DC.cleanVirus(disease);
+        else
+            PassTurn(1);
+    }
+
 
     public void PlayerComputerClicked(GameObject obj)
     {
