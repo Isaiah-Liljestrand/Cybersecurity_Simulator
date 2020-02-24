@@ -30,7 +30,14 @@ public abstract class Disease
 
     }
 
-    private List<int> getInfected()
+    public void Infect(int computer)
+    {
+        if (infected_computers == null)
+            infected_computers = new List<int>();
+        infected_computers.Add(computer);
+    }
+
+    public List<int> GetInfected()
     {
         return infected_computers;
     }

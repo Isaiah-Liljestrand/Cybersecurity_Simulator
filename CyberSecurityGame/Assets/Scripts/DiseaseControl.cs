@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class DiseaseControl : MonoBehaviour
 {
-    List<Disease> diseases = new List<Disease>();
+    public List<Disease> diseases = new List<Disease>();
+    private TimeLineControl timeline;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        timeline = GetComponent<TimeLineControl>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddDisease(Disease disease)
     {
-        
+        diseases.Add(disease);
     }
 
-    public void cleanVirus(Disease disease)
+    public void AddDisease(Disease disease, int computer)
+    {
+        disease.Infect(computer);
+        diseases.Add(disease);
+    }
+
+    public void CleanVirus(Disease disease)
     {
 
     }
