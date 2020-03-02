@@ -35,6 +35,11 @@ public class NetworkControl : MonoBehaviour
     //private List<List<LineRenderer>> lines;
     private GameObject LineObject;
 
+    //public int[] getcomputerstoinfect(int[] infectedcomputers)
+    //{
+        
+    //}
+
     public void ShowLines()
     {
         LineObject.SetActive(true);
@@ -107,8 +112,6 @@ public class NetworkControl : MonoBehaviour
                     box_trigger.GetComponent<LineClickScript>().net = this;
 
                     
-
-
                     LineRenderer newline = ChildLine.GetComponent<LineRenderer>();
                     lines[i, j] = newline;
                     newline.startColor = Color.white;
@@ -123,10 +126,6 @@ public class NetworkControl : MonoBehaviour
                     box_trigger.transform.LookAt(CoordinatesOfNodes[j]);
                     box_trigger.GetComponent<BoxCollider>().size = new Vector3(2.5f,2.5f, newline_length);
                     box_trigger.transform.position = (CoordinatesOfNodes[i] + CoordinatesOfNodes[j])/2;
-
-
-
-
 
                 }
             }
@@ -146,40 +145,26 @@ public class NetworkControl : MonoBehaviour
 
 
     public void set_all_nodes() {
-
+        
         foreach (Disease disease_type in GetComponent<DiseaseControl>().diseases) {
 
-
             foreach (int node in disease_type.GetInfected()) {
-
+                
                 set_node_color(node, disease_type.color);
             }
-
-
         }
-
-
     }
 
     public void set_node_color(int node, Color color) {
-            
-            
             for (int i = 0;i <= 15; i++) {
 
                 if (lines[node,i] != null) {
 
                     lines[node,i].startColor = color;
                     lines[node, i].endColor = color;
-
-
                 }
 
             }
             GetComponent<GameControl>().employees[node].desk.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = color;
-
-
     }
-
-
-
 }
