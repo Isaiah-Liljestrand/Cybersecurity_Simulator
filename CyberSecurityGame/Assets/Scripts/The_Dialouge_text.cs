@@ -20,6 +20,19 @@ public class The_Dialouge_text : MonoBehaviour
     private List<string> PasswdResponse = new List<string>();
     private List<string> Conclusion = new List<string>();
 
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    
 
 
     private void setGreeting()
@@ -94,9 +107,60 @@ public class The_Dialouge_text : MonoBehaviour
     }
 
 
+    public string text_assembler(DiseaseType virus)
+    {
+
+        string output = null;
+
+        output = output + chooseGreeting();
+        output = output + "\n";
+        output = output + problem_picker(virus);
+        output = output + "\n";
+        output = output + chooseConclusion();
+        output = output + "\n";
+
+        return output;
+    }
+
+
+    public string problem_picker(DiseaseType virus) {
+
+      switch (virus)
+        {
+            case DiseaseType.Dos:
+
+                return get_Dos_line();
+
+                break;
+
+            case DiseaseType.Phish:
+
+                return get_phish_line();
+
+                break;
+
+            case DiseaseType.Passwd:
+
+                return get_passwd_line();
+
+                break;
+
+            case DiseaseType.Upload:
+
+                return get_upload_line();
+
+                break;
+
+
+        }
+        return "Other";
+        
+    }
+
+
     public string chooseGreeting()
     {
-        //Random rand = new Random();
+        //Rando  m rand = new Random();
         int n = Random.Range(1, 7);
         return Greeeting[n - 1];
     }
@@ -139,15 +203,5 @@ public class The_Dialouge_text : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
