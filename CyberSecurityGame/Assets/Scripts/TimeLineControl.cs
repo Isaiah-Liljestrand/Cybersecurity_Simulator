@@ -39,13 +39,13 @@ public class TimeLineControl : MonoBehaviour
     private List<TimeLineEventType> AddEvents(int lookahead)
     {
         List<TimeLineEventType> newevents = new List<TimeLineEventType>();
-        newevents.Add(TimeLineEventType.nothing); //Add turns
+        /*newevents.Add(TimeLineEventType.nothing); //Add turns
         //Add disease spreads after turn passes.
         foreach (Disease disease in diseases)
         {
             if ((disease.currentturn + lookahead) % disease.turnsbeforespread == 0) //This dease will spread
                 newevents.Add(TimeLineEventType.unknownvirus);
-        }
+        }*/
         return newevents;
     }
 }
