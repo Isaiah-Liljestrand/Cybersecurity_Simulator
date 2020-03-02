@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DiseaseControl : MonoBehaviour
 {
+    public List<Disease> possibledieseases;
     public List<Disease> diseases = new List<Disease>();
     private TimeLineControl timeline;
 

@@ -9,8 +9,6 @@ public class GameControl : MonoBehaviour
     public List<EmployeeDeskPair> employees;
     public List<GameObject> BreakObjects;
     
-
-
     private bool Paused;
     private NetworkControl NC;
     private DiseaseControl DC;

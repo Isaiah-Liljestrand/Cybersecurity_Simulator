@@ -133,7 +133,7 @@ public class DialogueControl : MonoBehaviour
 
     private string chooseDialogue()
     {
-        int n; 
+        /*int n; 
         switch (state)
         {
             case 1:
@@ -198,7 +198,7 @@ public class DialogueControl : MonoBehaviour
                 }
                 break;
 
-        }
+        }*/
         return "Other";
         
     }

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class ClickManager : MonoBehaviour
 {
-    public GameControl gamecontrol;
     public GameObject TargetObj;
     public float taptime;
     public float ActivationDistance; //Distance at which the player can investigate/talk.
 
+    private GameControl gamecontrol;
     private float holdingtime;
     private bool holdingclicked;
+
+    private void Start()
+    {
+        gamecontrol = GetComponent<GameControl>();
+    }
 
     // Update is called once per frame
     void Update()

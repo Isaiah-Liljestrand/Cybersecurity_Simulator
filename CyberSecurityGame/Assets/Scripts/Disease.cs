@@ -5,9 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public abstract class Disease
+public enum DiseaseType
+{
+    Dos,
+    Phish
+}
+
+[Serializable]
+public class Disease
 {
     public string diseasename;
+    public DiseaseType diseasetype;
     public int turnsbeforespread;
     public int currentturn;
     public Color color;

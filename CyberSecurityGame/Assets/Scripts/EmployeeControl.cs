@@ -116,7 +116,7 @@ public class EmployeeControl : MonoBehaviour
     }
 
     //Returns true if this computer resists the disease
-    public bool PassedResistanceCheck(DiseaseType Disease)
+    /*public bool PassedResistanceCheck(DiseaseType Disease)
     {
         int Resistance = 0;
         switch(Disease)
@@ -140,7 +140,7 @@ public class EmployeeControl : MonoBehaviour
             return false;
         }
         return true;
-    }
+    }*/
 
     public void SolveIssue()
     {
