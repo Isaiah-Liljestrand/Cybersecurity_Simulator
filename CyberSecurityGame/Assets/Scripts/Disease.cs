@@ -17,9 +17,10 @@ public class Disease
     public string diseasename;
     public DiseaseType diseasetype;
     public int turnsbeforespread;
-    public int currentturn;
     public Color color;
     public Sprite img;
+
+    private int currentturn;
 
     private List<int> infected_computers;
 
