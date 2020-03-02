@@ -48,8 +48,7 @@ public class GameControl : MonoBehaviour
     {
         if (isfixed)
             DC.CleanVirus(disease);
-        else
-            PassTurn(1);
+        PassTurn(1);
     }
 
 

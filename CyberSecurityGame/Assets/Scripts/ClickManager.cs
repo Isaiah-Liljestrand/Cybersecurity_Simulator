@@ -55,7 +55,7 @@ public class ClickManager : MonoBehaviour
     {
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
-
+            gamecontrol.PersonClicked(obj);
         }
         else
         {
@@ -67,7 +67,7 @@ public class ClickManager : MonoBehaviour
     {
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
-
+            gamecontrol.ComputerClicked(obj);
         }
         else
         {
@@ -79,7 +79,7 @@ public class ClickManager : MonoBehaviour
     {
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
-
+            gamecontrol.PlayerComputerClicked(obj);
         }
         else
         {

@@ -10,7 +10,6 @@ public class EmployeeControl : MonoBehaviour
     public int ResistPhish;
     public int ResistPassword;
     public int ResistUpload;
-    public DiseaseType DiseaseCode;
     public bool CanInvestigate;
     public bool Mystery;
 
@@ -51,7 +50,6 @@ public class EmployeeControl : MonoBehaviour
         ResistPhish = UnityEngine.Random.Range(0, 100);
         ResistPassword = UnityEngine.Random.Range(0, 100);
         ResistUpload = UnityEngine.Random.Range(0, 100);
-        DiseaseCode = DiseaseType.Clean;
         OnBreak = true;
         PassedTime = 0;
         nav = GetComponent<NavigateTo>();
