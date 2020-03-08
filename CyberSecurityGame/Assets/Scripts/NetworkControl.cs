@@ -35,10 +35,18 @@ public class NetworkControl : MonoBehaviour
     //private List<List<LineRenderer>> lines;
     private GameObject LineObject;
 
-    //public int[] getcomputerstoinfect(int[] infectedcomputers)
-    //{
-        
-    //}
+    public int[] GetComputersToInfect(int[] infectedcomputers)
+    {
+        List<int> computers = new List<int>();
+        foreach(int infectedcomputer in infectedcomputers) {
+            for(int i = 0; i < 16; i++) {
+                if(Connections[infectedcomputer][i] == 1) {
+                    computers.Add(i);
+                }
+            }
+        }
+        return computers.ToArray();
+    }
 
     public void ShowLines()
     {

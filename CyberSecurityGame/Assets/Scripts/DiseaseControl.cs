@@ -5,39 +5,73 @@ using UnityEngine;
 public class DiseaseControl : MonoBehaviour
 {
     public List<Disease> possiblediseases;
-    public List<int> nextinfect;
     public List<Disease> diseases = new List<Disease>();
+    public List<int> infectedcomputers = new List<int>();
     private TimeLineControl timeline;
     private NetworkControl network;
 
     // Start is called before the first frame update
     void Start()
     {
-        
         timeline = GetComponent<TimeLineControl>();
         network = GetComponent<NetworkControl>();
     }
 
     public void PassTurn()
     {
-        //for(int i = 0; i < nextinfect.Count; i++) {
-        //    nextinfect.IndexOf(i)--;
-        //    if(nextinfect.IndexOf(i) == 0) {
-        //       diseases.IndexOf(i).Infect()
-        //        nextinfect.IndexOf(i) = diseases.IndexOf(i).NextSpread();
-        //    }
-        //}
+        foreach(Disease d in diseases) {
+            d.nextinfecttime--;
+
+            //If an infection is to take place
+            if(d.nextinfecttime == 0) {
+
+                //Setting up next infect time
+                d.nextinfecttime = d.NextInfect();
+
+                //Get all connections from infected computers to others, then trim out computers already infected
+                int[] potentialinfections = network.GetComputerToInfect(d.GetInfected());
+                int count = 0;
+                List<int> narrowedinfections = new List<int>();
+
+                for(int i = 0; i < potentialinfections.Length; i++) {
+                    foreach(int infected in infectedcomputers) {
+                        if(potentialinfections[i] == infected) {
+                            potentialinfections[i] = -1;
+                            break;
+                        }
+                    }
+
+                    if(potentialinfections[i] != -1) {
+                        narrowedinfections.Add(potentialinfections[i]);
+                    }
+                }
+
+                if(narrowedinfections.Count == 0) {
+                    break;
+                }
+
+                potentialinfections = narrowedinfections.ToArray();
+
+                int infectedcomputer = potentialinfections[UnityEngine.Random.Range(0,potentialinfections.Length)];
+                d.Infect(infectedcomputer);
+                infectedcomputers.Add(infectedcomputer);
+            }
+        }
     }
 
     public void AddDisease(Disease disease, int computer)
     {
         disease.Infect(computer);
         diseases.Add(disease);
-        nextinfect.Add(disease.NextSpread());
+        disease.InitializeInfectTime();
+        infectedcomputers.Add(computer);
     }
 
     public void CleanVirus(Disease disease)
     {
-        Debug.Log("NIGGA");
+        foreach(int computer in disease.GetInfected()) {
+            infectedcomputers.Remove(computer);
+        }
+        diseases.Remove(disease);
     }
 }

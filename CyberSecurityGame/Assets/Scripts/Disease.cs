@@ -17,7 +17,7 @@ public class Disease
     public int spreadspeedstatic;
     
     public int[] spreadspeedlist;
-    public int spreadspeedlistindex;
+    private int spreadspeedlistindex;
     
     public int spreadspeedmax;
     public int spreadspeedmin;
@@ -25,9 +25,20 @@ public class Disease
     public Color color;
     public Sprite img;
 
+    public int nextinfecttime;
     private List<int> infected_computers;
 
-    public int NextSpread()
+    public void InitializeInfectTime()
+    {
+        if(spreadtype == 2) {
+            nextinfecttime = spreadspeedlist[0];
+            spreadspeedlistindex = 1;
+        } else {
+            nextinfecttime = NextInfect();
+        }
+    }
+
+    public int NextInfect()
     {
         if(spreadtype == 1) {
             return spreadspeedstatic;
