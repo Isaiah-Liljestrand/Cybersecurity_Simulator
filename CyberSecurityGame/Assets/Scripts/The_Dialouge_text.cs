@@ -128,30 +128,13 @@ public class The_Dialouge_text : MonoBehaviour
       switch (virus)
         {
             case DiseaseType.Dos:
-
                 return get_Dos_line();
-
-                break;
-
             case DiseaseType.Phish:
-
                 return get_phish_line();
-
-                break;
-
             case DiseaseType.Passwd:
-
                 return get_passwd_line();
-
-                break;
-
             case DiseaseType.Upload:
-
                 return get_upload_line();
-
-                break;
-
-
         }
         return "Other";
         

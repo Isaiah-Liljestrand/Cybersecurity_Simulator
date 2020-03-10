@@ -29,11 +29,11 @@ public class DiseaseControl : MonoBehaviour
                 d.nextinfecttime = d.NextInfect();
 
                 //Get all connections from infected computers to others, then trim out computers already infected
-                int[] potentialinfections = network.GetComputerToInfect(d.GetInfected());
-                int count = 0;
+                List<int> potentialinfections = network.GetComputersToInfect(d.GetInfected());
+                //int count = 0;
                 List<int> narrowedinfections = new List<int>();
 
-                for(int i = 0; i < potentialinfections.Length; i++) {
+                for(int i = 0; i < potentialinfections.Count; i++) {
                     foreach(int infected in infectedcomputers) {
                         if(potentialinfections[i] == infected) {
                             potentialinfections[i] = -1;
@@ -50,9 +50,9 @@ public class DiseaseControl : MonoBehaviour
                     break;
                 }
 
-                potentialinfections = narrowedinfections.ToArray();
+                potentialinfections = narrowedinfections;
 
-                int infectedcomputer = potentialinfections[UnityEngine.Random.Range(0,potentialinfections.Length)];
+                int infectedcomputer = potentialinfections[UnityEngine.Random.Range(0,potentialinfections.Count)];
                 d.Infect(infectedcomputer);
                 infectedcomputers.Add(infectedcomputer);
             }
