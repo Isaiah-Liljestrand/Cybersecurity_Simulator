@@ -19,7 +19,7 @@ public class ChecklistUIControl : MonoBehaviour
     {
         currentoffset = initialoffset;
         canvas = GetComponent<Canvas>();
-        TurnOnChecklist();
+        //TurnOnChecklist();
     }
 
     public void TurnOnChecklist()
@@ -30,9 +30,6 @@ public class ChecklistUIControl : MonoBehaviour
         //Get the checklist items from somewhere
         AddPanel(false, "Test1 That says some things");
         AddPanel(true, "Do the funky goose dance");
-        AddPanel(false, "Go fuck yourself you nambypamby goose stepping whore");
-        AddPanel(true, "I have USB slots for nipples. Plug yourself in baby");
-        AddPanel(false, "Family friendly test 2");
     }
 
     public void TurnOffChecklist()

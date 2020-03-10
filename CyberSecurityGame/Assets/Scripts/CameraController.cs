@@ -26,7 +26,6 @@ public class CameraController : MonoBehaviour
         {
             //Gets the delta of the worldPos and mousePos
             Vector3 worldPosDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - lastpos;
-            Debug.Log(worldPosDelta);
 
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - worldPosDelta.x, Camera.main.transform.position.y - worldPosDelta.y, Camera.main.transform.position.z - worldPosDelta.z);
 
