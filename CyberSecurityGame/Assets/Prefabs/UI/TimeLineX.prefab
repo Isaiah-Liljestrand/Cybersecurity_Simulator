@@ -167,6 +167,8 @@ MonoBehaviour:
   donefilling: 0
   fadespeed: 2
   destroyonfade: 1
+  moveto: {x: 0, y: 0, z: 0}
+  movespeed: 0
 --- !u!1 &6194514708686757622
 GameObject:
   m_ObjectHideFlags: 0
