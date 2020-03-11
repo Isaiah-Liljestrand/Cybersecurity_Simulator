@@ -33,7 +33,7 @@ public class ClickManager : MonoBehaviour
                 if (Input.GetMouseButtonUp(0))
                 {
                     holdingclicked = false;
-                    if (holdingtime <= taptime)
+                    if (Validclick())
                         Clicked();
                 }
             }
@@ -56,8 +56,15 @@ public class ClickManager : MonoBehaviour
         }
     }
 
+    private bool Validclick()
+    {
+        return !gamecontrol.IsPaused() && holdingtime <= taptime;
+     }
+
     public void PersonClicked(GameObject obj)
     {
+        if (!Validclick())
+            return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
             gamecontrol.PersonClicked(obj);
@@ -70,6 +77,8 @@ public class ClickManager : MonoBehaviour
 
     public void ComputerClicked(GameObject obj)
     {
+        if (!Validclick())
+            return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
             gamecontrol.ComputerClicked(obj);
@@ -82,6 +91,8 @@ public class ClickManager : MonoBehaviour
 
     public void PlayerComputerClicked(GameObject obj)
     {
+        if (!Validclick())
+            return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
             gamecontrol.PlayerComputerClicked(obj);
@@ -94,11 +105,10 @@ public class ClickManager : MonoBehaviour
 
     public void ObjectClicked(GameObject obj)
     {
-        if (!gamecontrol.IsPaused())
-        {
-            TargetObj.SetActive(true);
-            TargetObj.transform.position = obj.transform.position;
-            gamecontrol.PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 1);
-        }
+        if (!Validclick())
+            return;
+        TargetObj.SetActive(true);
+        TargetObj.transform.position = obj.transform.position;
+        gamecontrol.PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 1);
     }
 }

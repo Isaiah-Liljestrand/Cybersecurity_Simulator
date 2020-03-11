@@ -19,7 +19,12 @@ public class ChecklistUIControl : MonoBehaviour
     {
         currentoffset = initialoffset;
         canvas = GetComponent<Canvas>();
-        //TurnOnChecklist();
+    }
+
+    private void Update()
+    {
+        if (canvas.enabled && Input.GetMouseButton(0))
+            TurnOffChecklist();
     }
 
     public void TurnOnChecklist()

@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4a1b4350417e64db30dc66f75bbc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibledieseases: []
+  possiblediseases: []
   diseases: []
+  infectedcomputers: 
 --- !u!114 &3521642494880324076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,10 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b82034f2b448bc4c9e36de6ac991ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamecontrol: {fileID: 0}
   TargetObj: {fileID: 0}
-  taptime: 0
-  ActivationDistance: 0
+  taptime: 0.2
+  ActivationDistance: 2
 --- !u!114 &3072509074611285027
 MonoBehaviour:
   m_ObjectHideFlags: 0

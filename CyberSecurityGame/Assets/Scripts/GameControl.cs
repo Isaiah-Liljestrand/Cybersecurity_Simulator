@@ -8,6 +8,9 @@ public class GameControl : MonoBehaviour
     public GameObject PlayerObj;
     public List<EmployeeDeskPair> employees;
     public List<GameObject> BreakObjects;
+
+    public ChecklistUIControl checklistui;
+    public GuidebookUIControl guidebookui;
     
     private bool Paused;
     private NetworkControl NC;
@@ -52,7 +55,17 @@ public class GameControl : MonoBehaviour
 
     public void PlayerComputerClicked(GameObject obj)
     {
+        NC.ShowNetwork();
+    }
 
+    public void ChecklistClicked()
+    {
+        checklistui.TurnOnChecklist();
+    }
+
+    public void GuidebookClicked()
+    {
+        guidebookui.TurnOn();
     }
 
     public bool IsPaused()
