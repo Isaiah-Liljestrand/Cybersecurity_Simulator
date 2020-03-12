@@ -21,12 +21,6 @@ public class ChecklistUIControl : MonoBehaviour
         canvas = GetComponent<Canvas>();
     }
 
-    private void Update()
-    {
-        if (canvas.enabled && Input.GetMouseButton(0))
-            TurnOffChecklist();
-    }
-
     public void TurnOnChecklist()
     {
         canvas.enabled = true;

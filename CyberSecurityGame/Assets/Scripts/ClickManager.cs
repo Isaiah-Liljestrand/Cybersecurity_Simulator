@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ClickManager : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class ClickManager : MonoBehaviour
     private GameControl gamecontrol;
     private float holdingtime;
     private bool holdingclicked;
+    private int fingerID = -1;
+
+    private void Awake()
+    {
+#if !UNITY_EDITOR
+        fingerID = 0; 
+#endif
+    }
 
     private void Start()
     {
@@ -58,8 +67,13 @@ public class ClickManager : MonoBehaviour
 
     private bool Validclick()
     {
+        if (EventSystem.current.IsPointerOverGameObject(fingerID))    // is the touch on the GUI
+        {
+            // GUI Action
+            return false;
+        }
         return !gamecontrol.IsPaused() && holdingtime <= taptime;
-     }
+    }
 
     public void PersonClicked(GameObject obj)
     {

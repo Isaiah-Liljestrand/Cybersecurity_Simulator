@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RandomGlyph : MonoBehaviour
 {
+    private int mincharcount = 1;
+    private int maxcharcount = 3;
     private char minchar = '\ue6aa';
     private char maxchar = '\ue67f';
     private TextMeshPro text;
@@ -19,6 +21,10 @@ public class RandomGlyph : MonoBehaviour
     public void RandomChar()
     {
         if (text)
-            text.text = "" + (char)(minchar + Random.Range(0, maxchar - minchar));
+        {
+            text.text = "";
+            for (int i = 0; i < Random.Range(mincharcount, maxcharcount); i++)
+                text.text += (char)(minchar + Random.Range(0, maxchar - minchar));
+        }
     }
 }
