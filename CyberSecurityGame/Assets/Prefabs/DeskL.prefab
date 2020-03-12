@@ -221,6 +221,7 @@ MonoBehaviour:
   length: 290
   includespaces: 1
   cutoff: 10
+  time: 4
 --- !u!1 &3858472941440172747
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +706,7 @@ MonoBehaviour:
   length: 290
   includespaces: 1
   cutoff: 10
+  time: 4
 --- !u!1 &7754408167318102053
 GameObject:
   m_ObjectHideFlags: 0
