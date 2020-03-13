@@ -39,7 +39,6 @@ public class CameraController : MonoBehaviour
             float newy = Mathf.Clamp(Camera.main.transform.position.y - worldPosDelta.y, firstpos.y - maxchange.y, firstpos.y + maxchange.y);
             float newz = Mathf.Clamp(Camera.main.transform.position.z - worldPosDelta.z, firstpos.z - maxchange.z, firstpos.z + maxchange.z);
             Camera.main.transform.position = new Vector3(newx, newy, newz);
-            Debug.Log(Camera.main.transform.position);
 
             //Set previous variables to current state for use in next frame
             lastpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

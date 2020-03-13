@@ -247,4 +247,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a81b19d8ca9834384bc1ac7648cbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 8c1c8fc097c4533468c6b287f67ed823, type: 3}
+  - {fileID: 8300000, guid: 8b64fc7e74ae6e84e9cc058316df3f34, type: 3}
+  - {fileID: 8300000, guid: 1db57f214d2cf1344931a17bdbabf237, type: 3}
+  - {fileID: 8300000, guid: d5116278942223942aad7949e6f2be78, type: 3}
+  - {fileID: 8300000, guid: 3fa689139d0eb534cb15fb1ee7876660, type: 3}
+  - {fileID: 8300000, guid: 541650feb853d524095173e17782f745, type: 3}
+  - {fileID: 8300000, guid: 062ee8cd25526da408b288c25b1d6a9e, type: 3}
+  - {fileID: 8300000, guid: 3ea4cf5555c127546816e0ce3d8f3015, type: 3}
+  - {fileID: 8300000, guid: 82035632822fdf04aa3e6f19c87b7bda, type: 3}
+  - {fileID: 8300000, guid: 21b2f7ec2d016ee42a7d71bd97c4f49b, type: 3}
+  - {fileID: 8300000, guid: b5ea21dafb5ea464a812c551996c024d, type: 3}

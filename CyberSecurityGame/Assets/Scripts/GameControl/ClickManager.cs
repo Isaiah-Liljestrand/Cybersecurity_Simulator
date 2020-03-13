@@ -61,7 +61,7 @@ public class ClickManager : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Floor")
             {
-                PlaySound();
+                PlayClick();
                 TargetObj.SetActive(true);
                 TargetObj.transform.position = hit.point;
                 gamecontrol.PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point, 1);
@@ -85,7 +85,7 @@ public class ClickManager : MonoBehaviour
             return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
-            PlaySound();
+            PlayMumbles();
             gamecontrol.PersonClicked(obj);
         }
         else
@@ -100,7 +100,7 @@ public class ClickManager : MonoBehaviour
             return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
-            PlaySound();
+            PlayKeyboardsounds();
             gamecontrol.ComputerClicked(obj);
         }
         else
@@ -115,7 +115,7 @@ public class ClickManager : MonoBehaviour
             return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
-            PlaySound();
+            PlayKeyboardsounds();
             gamecontrol.PlayerComputerClicked(obj);
         }
         else
@@ -128,17 +128,36 @@ public class ClickManager : MonoBehaviour
     {
         if (!Validclick())
             return;
-        PlaySound();
+        PlayClick();
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
         gamecontrol.PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 1);
     }
 
-    private void PlaySound()
+    private void PlayClick()
     {
         if (playsound)
         {
-            playsound.Play();
+            GetComponent<AudioSource>().volume = 0.6f;
+            playsound.Play(0);
+        }
+    }
+
+    private void PlayKeyboardsounds()
+    {
+        if (playsound)
+        {
+            GetComponent<AudioSource>().volume = 0.6f;
+            playsound.Play(1);
+        }
+    }
+
+    private void PlayMumbles()
+    {
+        if (playsound)
+        {
+            GetComponent<AudioSource>().volume = 1;
+            playsound.PlayRandom(2);
         }
     }
 }
