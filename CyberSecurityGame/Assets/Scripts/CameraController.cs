@@ -9,11 +9,19 @@ public class CameraController : MonoBehaviour
     public float minsize;
     public float maxsize;
 
+    public Vector3 maxchange;
+
     public float zoomspeed;
 
     private Vector3 lastpos;
+    private Vector3 firstpos;
 
     public List<Camera> zoomcameras;
+
+    private void Start()
+    {
+        firstpos = transform.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,7 +35,11 @@ public class CameraController : MonoBehaviour
             //Gets the delta of the worldPos and mousePos
             Vector3 worldPosDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - lastpos;
 
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - worldPosDelta.x, Camera.main.transform.position.y - worldPosDelta.y, Camera.main.transform.position.z - worldPosDelta.z);
+            float newx = Mathf.Clamp(Camera.main.transform.position.x - worldPosDelta.x, firstpos.x - maxchange.x, firstpos.x + maxchange.x);
+            float newy = Mathf.Clamp(Camera.main.transform.position.y - worldPosDelta.y, firstpos.y - maxchange.y, firstpos.y + maxchange.y);
+            float newz = Mathf.Clamp(Camera.main.transform.position.z - worldPosDelta.z, firstpos.z - maxchange.z, firstpos.z + maxchange.z);
+            Camera.main.transform.position = new Vector3(newx, newy, newz);
+            Debug.Log(Camera.main.transform.position);
 
             //Set previous variables to current state for use in next frame
             lastpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

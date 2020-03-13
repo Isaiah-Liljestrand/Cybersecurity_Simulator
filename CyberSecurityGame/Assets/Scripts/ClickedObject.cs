@@ -17,7 +17,7 @@ public class ClickedObject : MonoBehaviour
         control = GameObject.Find("Control").GetComponent<ClickManager>();
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         if (standlocation)
         {
