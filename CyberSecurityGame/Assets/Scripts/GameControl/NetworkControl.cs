@@ -10,8 +10,6 @@ public class NetworkControl : MonoBehaviour
     public Material LineMaterial;
     public GameObject NetworkShadow;
 
-
-
     public int[,] Connections = new int[16, 16]
     {//   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
         { 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //0
@@ -31,9 +29,18 @@ public class NetworkControl : MonoBehaviour
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1}, //14
         { 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0}  //15
     };
+
+    public bool ShowGizmoLines;
+
     private LineRenderer[,] lines = new LineRenderer[16, 16];
     //private List<List<LineRenderer>> lines;
     private GameObject LineObject;
+    private GameControl gc;
+
+    private void Start()
+    {
+        gc = GetComponent<GameControl>();
+    }
 
     public List<int> GetComputersToInfect(List<int> infectedcomputers)
     {
@@ -173,6 +180,25 @@ public class NetworkControl : MonoBehaviour
                 }
 
             }
-            GetComponent<GameControl>().employees[node].desk.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = color;
+            gc.employees[node].desk.transform.Find("NetworkNode").gameObject.GetComponent<Renderer>().material.color = color;
+    }
+
+    //Just draws lines of the network in editor.
+    private void OnDrawGizmos()
+    {
+        if (ShowGizmoLines)
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                for (int j = 0; j < 16; j++)
+                {
+                    if (j >= i && Connections[i, j] == 1)
+                    {
+                        Gizmos.color = Color.green;
+                        Gizmos.DrawLine(GetComponent<GameControl>().employees[i].desk.transform.position, GetComponent<GameControl>().employees[j].desk.transform.position);
+                    }
+                }
+            }
+        }
     }
 }

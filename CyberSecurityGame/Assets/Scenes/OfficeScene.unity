@@ -29254,6 +29254,11 @@ PrefabInstance:
       propertyPath: NetworkShadow
       value: 
       objectReference: {fileID: 1862457866}
+    - target: {fileID: 3521642493660214998, guid: e7039d7dc7d06be43a0dbc75f4dd6473,
+        type: 3}
+      propertyPath: ShowGizmoLines
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6886608145446769908, guid: e7039d7dc7d06be43a0dbc75f4dd6473,
         type: 3}
       propertyPath: possibledieseases.Array.size
