@@ -4,12 +4,8 @@ using UnityEngine;
 
 [SerializeField]
 public enum DiseaseType{
-
             Dos,
             Phish,
             Upload,
             Passwd
-
-
-
-    }
+}
