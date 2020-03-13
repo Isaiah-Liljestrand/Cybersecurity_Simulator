@@ -37,7 +37,6 @@ public class DiseaseControl : MonoBehaviour
                     foreach(int infected in infectedcomputers) {
                         if(potentialinfections[i] == infected) {
                             potentialinfections[i] = -1;
-                            break;
                         }
                     }
 
@@ -47,7 +46,7 @@ public class DiseaseControl : MonoBehaviour
                 }
 
                 if(narrowedinfections.Count == 0) {
-                    break;
+                    continue;
                 }
 
                 potentialinfections = narrowedinfections;

@@ -7,9 +7,6 @@ public class EmployeeControl : MonoBehaviour
 {
     public String Name;
     public int Index;
-    public int ResistPhish;
-    public int ResistPassword;
-    public int ResistUpload;
     public bool CanInvestigate;
     public bool Mystery;
 
@@ -32,12 +29,8 @@ public class EmployeeControl : MonoBehaviour
     private bool Paused;
 
     private GameObject ExclamationMark;
-    public float CleanTime;
-    public float ResearchTime;
 
     private float PassedCRTime;
-    public bool Cleaning;
-    private bool Researching;
 
     public GameObject speechbubble;
     public float speechbubblechance;
@@ -47,11 +40,7 @@ public class EmployeeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ResistPhish = UnityEngine.Random.Range(0, 100);
-        ResistPassword = UnityEngine.Random.Range(0, 100);
-        ResistUpload = UnityEngine.Random.Range(0, 100);
         OnBreak = true;
-        PassedTime = 0;
         nav = GetComponent<NavigateTo>();
         control = GameObject.Find("Control").GetComponent<GameControl>();
     }
@@ -114,33 +103,6 @@ public class EmployeeControl : MonoBehaviour
         Paused = false;
         nav.Agent.isStopped = false;
     }
-
-    //Returns true if this computer resists the disease
-    /*public bool PassedResistanceCheck(DiseaseType Disease)
-    {
-        int Resistance = 0;
-        switch(Disease)
-        {
-            case DiseaseType.Clean:
-                break;
-            case DiseaseType.DOS:
-                break;
-            case DiseaseType.Password:
-                Resistance = ResistPassword;
-                break;
-            case DiseaseType.Phish:
-                Resistance = ResistPhish;
-                break;
-            case DiseaseType.Upload:
-                Resistance = ResistUpload;
-                break;
-        }
-        if (UnityEngine.Random.Range(0, 100) > Resistance)
-        {
-            return false;
-        }
-        return true;
-    }*/
 
     public void SolveIssue()
     {

@@ -55,6 +55,8 @@ public class NetworkControl : MonoBehaviour
         return computers;
     }
 
+
+    // UI functions from here forward
     public void ShowLines()
     {
         LineObject.SetActive(true);
