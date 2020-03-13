@@ -14,6 +14,8 @@ public class ClickManager : MonoBehaviour
     private bool holdingclicked;
     private int fingerID = -1;
 
+    private PlaySound playsound;
+
     private void Awake()
     {
 #if !UNITY_EDITOR
@@ -24,6 +26,7 @@ public class ClickManager : MonoBehaviour
     private void Start()
     {
         gamecontrol = GetComponent<GameControl>();
+        playsound = GetComponent<PlaySound>();
     }
 
     // Update is called once per frame
@@ -58,6 +61,7 @@ public class ClickManager : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Floor")
             {
+                PlaySound();
                 TargetObj.SetActive(true);
                 TargetObj.transform.position = hit.point;
                 gamecontrol.PlayerObj.GetComponent<NavigateTo>().GoToPosition(hit.point, 1);
@@ -81,6 +85,7 @@ public class ClickManager : MonoBehaviour
             return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
+            PlaySound();
             gamecontrol.PersonClicked(obj);
         }
         else
@@ -95,6 +100,7 @@ public class ClickManager : MonoBehaviour
             return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
+            PlaySound();
             gamecontrol.ComputerClicked(obj);
         }
         else
@@ -109,6 +115,7 @@ public class ClickManager : MonoBehaviour
             return;
         if (Vector3.Distance(gamecontrol.PlayerObj.transform.position, obj.transform.position) < ActivationDistance)
         {
+            PlaySound();
             gamecontrol.PlayerComputerClicked(obj);
         }
         else
@@ -121,8 +128,17 @@ public class ClickManager : MonoBehaviour
     {
         if (!Validclick())
             return;
+        PlaySound();
         TargetObj.SetActive(true);
         TargetObj.transform.position = obj.transform.position;
         gamecontrol.PlayerObj.GetComponent<NavigateTo>().GoToPosition(obj.transform.position, 1);
+    }
+
+    private void PlaySound()
+    {
+        if (playsound)
+        {
+            playsound.Play();
+        }
     }
 }
