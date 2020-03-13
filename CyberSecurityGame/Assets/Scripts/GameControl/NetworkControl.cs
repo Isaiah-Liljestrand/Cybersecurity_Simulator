@@ -194,9 +194,8 @@ public class NetworkControl : MonoBehaviour
                 {
                     if (j >= i && Connections[i, j] == 1)
                     {
-                        Gizmos.color = Color.green;
-                        Gizmos.DrawLine(GetComponent<GameControl>().employees[i].desk.transform.position, GetComponent<GameControl>().employees[j].desk.transform.position);
-                    }
+                        Gizmos.color = Color.white;
+                        Gizmos.DrawLine(GetComponent<GameControl>().employees[i].desk.transform.position, gc.employees[j].desk.transform.position);                    }
                 }
             }
         }
