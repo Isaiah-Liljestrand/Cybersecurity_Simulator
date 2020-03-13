@@ -37,12 +37,15 @@ public class EmployeeControl : MonoBehaviour
     public float speechbubblelifespan;
     private float speechbubbletime;
 
+    private PlaySound playsound;
+
     // Start is called before the first frame update
     void Start()
     {
         OnBreak = true;
         nav = GetComponent<NavigateTo>();
         control = GameObject.Find("Control").GetComponent<GameControl>();
+        playsound = GetComponent<PlaySound>();
     }
 
     // Update is called once per frame
@@ -65,6 +68,8 @@ public class EmployeeControl : MonoBehaviour
                     speechbubbletime = 0;
                     speechbubble.SetActive(true);
                     speechbubble.GetComponentInChildren<RandomGlyph>().RandomChar();
+                    if (playsound)
+                        playsound.PlayRandom();
                 }
             }
             if (!OnBreak && !CanInvestigate)

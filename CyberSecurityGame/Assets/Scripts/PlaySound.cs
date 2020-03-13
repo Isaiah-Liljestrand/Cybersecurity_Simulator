@@ -29,4 +29,19 @@ public class PlaySound : MonoBehaviour
             source.Play();
         }
     }
+
+    public void PlayRandom()
+    {
+        source.clip = clips[Random.Range(0, clips.Count - 1)];
+        source.Play();
+    }
+
+    public void PlayRandom(int start)
+    {
+        if (start < clips.Count)
+        {
+            source.clip = clips[Random.Range(start, clips.Count - 1)];
+            source.Play();
+        }
+    }
 }

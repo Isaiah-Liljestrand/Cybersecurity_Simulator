@@ -6,6 +6,8 @@ public class MusicScript : MonoBehaviour
 {
     public List<AudioClip> music;
 
+    public KeyCode skipbutton;
+
     private int lastsong;
     private AudioSource source;
 
@@ -35,5 +37,18 @@ public class MusicScript : MonoBehaviour
                 PlaySong(chosen);
             }
         }
+
+#if UNITY_EDITOR
+        if (Input.GetKeyUp(skipbutton))
+        {
+            if (music.Count > 0)
+            {
+                int chosen = lastsong;
+                while (chosen == lastsong)
+                    chosen = Random.Range(0, music.Count);
+                PlaySong(chosen);
+            }
+        }
+#endif
     }
 }
