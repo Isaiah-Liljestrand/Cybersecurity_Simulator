@@ -44,7 +44,22 @@ public class CameraController : MonoBehaviour
             lastpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
+        //Scroll wheel zoom
         Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * zoomspeed;
+        //Phone pinch to zoom
+        if (Input.touchCount == 2)
+        {
+            Touch finger1 = Input.touches[0];
+            Touch finger2 = Input.touches[1];
+
+            Vector2 finger1prev = finger1.position - finger1.deltaPosition;
+            Vector2 finger2prev = finger2.position - finger2.deltaPosition;
+
+            float prevmagnitude = (finger2prev - finger1prev).magnitude;
+            float magnitude = (finger2.position - finger1.position).magnitude;
+
+            Camera.main.orthographicSize -= (magnitude - prevmagnitude) * zoomspeed;
+        }
         if (Camera.main.orthographicSize < minsize)
             Camera.main.orthographicSize = minsize;
         if (Camera.main.orthographicSize > maxsize)
