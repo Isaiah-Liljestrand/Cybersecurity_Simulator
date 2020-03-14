@@ -50,6 +50,10 @@ public class ClickManager : MonoBehaviour
                 }
             }
         }
+        if (gamecontrol.uistate == UIState.Network && Input.GetMouseButtonDown(0))
+        {
+            gamecontrol.LeaveNetwork();
+        }
     }
 
     private void Clicked()
