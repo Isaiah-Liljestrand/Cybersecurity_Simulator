@@ -200,9 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Index: 0
-  ResistPhish: 0
-  ResistPassword: 0
-  ResistUpload: 0
   CanInvestigate: 0
   Mystery: 0
   Office: {fileID: 0}
@@ -210,9 +207,6 @@ MonoBehaviour:
   BreakTimeMax: 30
   WorkTimeMin: 20
   WorkTimeMax: 60
-  CleanTime: 10
-  ResearchTime: 40
-  Cleaning: 0
   speechbubble: {fileID: 673180239867772271}
   speechbubblechance: 0.001
   speechbubblelifespan: 2
@@ -247,7 +241,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 200
+  Priority: 130
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
