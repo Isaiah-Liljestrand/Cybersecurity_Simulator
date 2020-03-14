@@ -11,6 +11,43 @@ public class ResearchWidgets
     public bool spreadView;                 //Allows for the player to see the spread of diseases for a certain ammount of time
     public bool improvedObservation;        //When investigating people, additional information becomes available....such as sticky note with password or usb drive
     public bool getACoolHat;                //For tutorial purposes?????
-    public bool screamingNarrator;          //Voiced by Alden Towler
-    public bool screamingVoiceRemovalService;//Please god make it stop
+
+    void Start()
+    {
+        extraCleanAttempt = false;
+        eliminateWrongOptions = false;
+        spreadView = false;
+        improvedObservation = false;
+        getACoolHat = false;
+    }
+
+    public void ExtraCleanAttempt()
+    {
+        extraCleanAttempt = true;
+        //Notify computer interface controler
+    }
+
+    public void EliminateWrongOptions()
+    {
+        eliminateWrongOptions = true;
+        //Notify computer interface controller
+    }
+
+    public void SpreadView()
+    {
+        spreadView = true;
+        //Notify networkview
+    }
+
+    public void ImprovedObservation()
+    {
+        improvedObservation = true;
+        //Nofity dialogue control
+    }
+
+    public void GetACoolHat()
+    {
+        getACoolHat = true;
+        //Get a dope ass hat
+    }
 }
