@@ -166,7 +166,7 @@ public class NetworkControl : MonoBehaviour
         
         foreach (Disease disease_type in GetComponent<DiseaseControl>().diseases) {
 
-            foreach (int node in disease_type.GetInfected()) {
+            foreach (int node in disease_type.infected_computers) {
                 
                 set_node_color(node, disease_type.color);
             }

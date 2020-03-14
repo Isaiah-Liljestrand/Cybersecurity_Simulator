@@ -10,12 +10,15 @@ public enum Spreadtype
     range
 }
 
+
 [Serializable]
 public class Disease
 {
     public string diseasename;
     public DiseaseType diseasetype;
+    public DistributeType distribute;
 
+    //Spread type and length
     public Spreadtype spreadtype;      //1 = static, 2 = list, 3 = range
     
     public int spreadspeedstatic;
@@ -26,11 +29,14 @@ public class Disease
     public int spreadspeedmax;
     public int spreadspeedmin;
     
+    //UI information
     public Color color;
     public Sprite img;
 
+    //Active infection information
+    public int nextinfecttarget;
     public int nextinfecttime;
-    private List<int> infected_computers;
+    public List<int> infected_computers;
 
     public void InitializeInfectTime()
     {
@@ -69,10 +75,5 @@ public class Disease
         if (infected_computers == null)
             infected_computers = new List<int>();
         infected_computers.Add(computer);
-    }
-
-    public List<int> GetInfected()
-    {
-        return infected_computers;
     }
 }

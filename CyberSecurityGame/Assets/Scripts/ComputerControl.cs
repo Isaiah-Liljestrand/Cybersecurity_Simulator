@@ -30,12 +30,11 @@ public class ComputerControl : MonoBehaviour
     public void FixComputer()
     {
         //open ui
-        //
     }
 
 
     public void FixedResult(bool isfixed)
     {
-        GameObject.Find("Control").GetComponent<GameControl>().ComputerFix(isfixed, disease);
+        GameObject.Find("Control").GetComponent<GameControl>().ComputerFix(isfixed, Index);
     }
 }

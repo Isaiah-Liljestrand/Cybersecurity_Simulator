@@ -14675,7 +14675,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e2741ba4394029c409cde258a0a76055, type: 3}
   - {fileID: 8300000, guid: b36ac03d786c10448af3b457aae9a290, type: 3}
   - {fileID: 8300000, guid: a9f45258841238f42bb71585f532b25e, type: 3}
-  skipbutton: 115
+  skipbutton: 0
 --- !u!1001 &876954270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30047,7 +30047,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3521642494880324074}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2074632932}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad7084db876485a4c88adc24be70d981, type: 3}
@@ -32347,6 +32347,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073181551}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2074632932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3521642493660214995, guid: e7039d7dc7d06be43a0dbc75f4dd6473,
+    type: 3}
+  m_PrefabInstance: {fileID: 3521642494880324074}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2074632933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074632932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87370d125ee2414b9d7e343d325d1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2077483709
 PrefabInstance:
   m_ObjectHideFlags: 0

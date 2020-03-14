@@ -16,6 +16,7 @@ public class GameControl : MonoBehaviour
     private NetworkControl NC;
     private DiseaseControl DC;
     private TimeLineControl TC;
+    private EducationControl EC;
 
     private int turns;
 
@@ -25,6 +26,7 @@ public class GameControl : MonoBehaviour
         NC = GetComponent<NetworkControl>();
         DC = GetComponent<DiseaseControl>();
         TC = GetComponent<TimeLineControl>();
+        EC = GetComponent<EducationControl>();
         turns = 0;
     }
 
@@ -45,10 +47,10 @@ public class GameControl : MonoBehaviour
         
     }
 
-    public void ComputerFix(bool isfixed, Disease disease)
+    public void ComputerFix(bool isfixed, int computer)
     {
         if (isfixed)
-            DC.CleanVirus(disease);
+            DC.CleanComputer(computer);
         PassTurn(1);
     }
 
