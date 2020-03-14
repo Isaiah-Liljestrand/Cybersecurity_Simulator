@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips: []
+  randompitchoffset: 0.2
   PlayOnTrigger: 1
 --- !u!1 &7820068134338422367
 GameObject:
