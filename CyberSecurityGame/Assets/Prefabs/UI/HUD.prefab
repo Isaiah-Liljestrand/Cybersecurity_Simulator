@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 2378695299947150042}
   - component: {fileID: 7000883508053462922}
   - component: {fileID: 7226496024379995873}
+  - component: {fileID: 5719783186778881861}
   m_Layer: 5
   m_Name: CheckListBtn
   m_TagString: Untagged
@@ -168,6 +169,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &5719783186778881861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634090932967785571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3897795747687993027
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +354,7 @@ GameObject:
   - component: {fileID: 3904233776893215674}
   - component: {fileID: 6778545751654064941}
   - component: {fileID: 2810766820368485966}
+  - component: {fileID: 2811014462228404628}
   m_Layer: 5
   m_Name: GuidebookBtn
   m_TagString: Untagged
@@ -458,6 +475,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2811014462228404628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4842945288981913648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6876608996314423800
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +710,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips: []
+  randompitchoffset: 0
+  PlayOnTrigger: 0
 --- !u!1 &9162873778870895707
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +929,7 @@ GameObject:
   - component: {fileID: 9162873779401494688}
   - component: {fileID: 9162873779401494689}
   - component: {fileID: 9162873779401494690}
+  - component: {fileID: 4747314314303776454}
   m_Layer: 5
   m_Name: MenuBtn
   m_TagString: Untagged
@@ -1015,6 +1050,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &4747314314303776454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162873779401494692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &9162873779526832272
 GameObject:
   m_ObjectHideFlags: 0

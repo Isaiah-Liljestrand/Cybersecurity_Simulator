@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3072509074611285027}
   - component: {fileID: 8027823795619301274}
   - component: {fileID: 1008636988176894435}
+  - component: {fileID: 2074632933}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -51,7 +52,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerObj: {fileID: 0}
-  employees: []
+  employees:
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
+  - employee: {fileID: 0}
+    desk: {fileID: 0}
   BreakObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -105,6 +138,7 @@ MonoBehaviour:
   possiblediseases: []
   diseases: []
   infectedcomputers: 
+  targetedcomputers: 
 --- !u!114 &3521642494880324076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetObj: {fileID: 0}
   taptime: 0.2
-  ActivationDistance: 2
+  ActivationDistance: 5
 --- !u!114 &3072509074611285027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,3 +293,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 82035632822fdf04aa3e6f19c87b7bda, type: 3}
   - {fileID: 8300000, guid: 21b2f7ec2d016ee42a7d71bd97c4f49b, type: 3}
   - {fileID: 8300000, guid: b5ea21dafb5ea464a812c551996c024d, type: 3}
+  randompitchoffset: 0.1
+  PlayOnTrigger: 0
+--- !u!114 &2074632933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521642493660214995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87370d125ee2414b9d7e343d325d1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

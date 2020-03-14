@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 7612411170082813865}
   - component: {fileID: 6245374145733031501}
   - component: {fileID: 6688656476500563061}
+  - component: {fileID: 5473716118029077142}
   m_Layer: 5
   m_Name: TimeLineX
   m_TagString: Untagged
@@ -169,6 +170,21 @@ MonoBehaviour:
   destroyonfade: 1
   moveto: {x: 0, y: 0, z: 0}
   movespeed: 0
+--- !u!114 &5473716118029077142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138133987363682007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6194514708686757622
 GameObject:
   m_ObjectHideFlags: 0
