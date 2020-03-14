@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+public enum UIState
+{
+    InGame,
+    Network,
+    Dialogue,
+    Computer
+}
+
 public class GameControl : MonoBehaviour
 {
     public GameObject PlayerObj;
@@ -18,6 +26,8 @@ public class GameControl : MonoBehaviour
     private TimeLineControl TC;
     private EducationControl EC;
 
+    public UIState uistate;
+
     private int turns;
 
     // Start is called before the first frame update
@@ -27,6 +37,7 @@ public class GameControl : MonoBehaviour
         DC = GetComponent<DiseaseControl>();
         TC = GetComponent<TimeLineControl>();
         EC = GetComponent<EducationControl>();
+        uistate = UIState.InGame;
         turns = 0;
     }
 
@@ -57,7 +68,16 @@ public class GameControl : MonoBehaviour
 
     public void PlayerComputerClicked(GameObject obj)
     {
+        uistate = UIState.Network;
+        Pause();
         NC.ShowNetwork();
+    }
+
+    public void LeaveNetwork()
+    {
+        uistate = UIState.InGame;
+        Resume();
+        NC.HideNetwork();
     }
 
     public void ChecklistClicked()

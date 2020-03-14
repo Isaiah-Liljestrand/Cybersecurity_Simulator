@@ -41,6 +41,10 @@ public class NetworkControl : MonoBehaviour
     private void Start()
     {
         gc = GetComponent<GameControl>();
+        List<GameObject> desks = new List<GameObject>();
+        foreach (EmployeeDeskPair pair in gc.employees)
+            desks.Add(pair.desk);
+        CreateLines(desks);
     }
 
     public List<int> GetComputersToInfect(List<int> infectedcomputers)
@@ -86,7 +90,7 @@ public class NetworkControl : MonoBehaviour
         HideLines();
         foreach (EmployeeDeskPair obj in GetComponent<GameControl>().employees)
         {
-            obj.desk.transform.Find("NetworkNode").gameObject.SetActive(true);
+            obj.desk.transform.Find("NetworkNode").gameObject.SetActive(false);
         }
     }
 
