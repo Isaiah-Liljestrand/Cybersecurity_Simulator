@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum DistributeType
-{
-    None,
-    Phishing,
-    Upload,
-    AccountCompromise
-}
 
 public class EmployeeEducation
 {

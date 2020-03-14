@@ -33,6 +33,8 @@ public class GameControl : MonoBehaviour
     public void PassTurn(int turnspassed)
     {
         turns++;
+        DC.PassTurn();
+        TC.PassTurn();
         //Tell everybody the shit that happens
 
     }

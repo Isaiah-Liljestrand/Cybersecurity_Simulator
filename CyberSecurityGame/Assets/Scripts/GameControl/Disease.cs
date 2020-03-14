@@ -11,6 +11,8 @@ public enum Spreadtype
 }
 
 
+
+
 [Serializable]
 public class Disease
 {
