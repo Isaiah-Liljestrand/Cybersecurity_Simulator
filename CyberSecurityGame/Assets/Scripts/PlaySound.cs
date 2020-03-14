@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlaySound : MonoBehaviour
 {
     public List<AudioClip> clips;
+    public bool PlayOnTrigger;
     private AudioSource source;
     private AudioClip originalclip;
 
@@ -42,6 +43,14 @@ public class PlaySound : MonoBehaviour
         {
             source.clip = clips[Random.Range(start, clips.Count - 1)];
             source.Play();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (PlayOnTrigger)
+        {
+            Play();
         }
     }
 }
